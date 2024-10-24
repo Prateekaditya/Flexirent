@@ -1,0 +1,262 @@
+.containerLogin{
+    background-color: #36648F;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    
+}
+.semimainLogin{
+    background-color: #D9D9D9;
+    height: 80%;
+    width: 90%;
+    position: relative;
+    /* left: 70px; */
+    justify-self: center;
+    top: 60px;
+    z-index: 2;
+    /* display: flex;
+    flex-direction: column; */
+    /* align-items: center; */
+}
+.firstSidelogin{
+    color: #1A5286;
+    /* background-color: red; */
+    width: 500px;
+    height: 520px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/* .firstSidelogin h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+.logindesign{
+    width:380px;
+    height: 308px;
+    position: relative;
+    top:36px ;
+    left: -60px;
+    background: linear-gradient(39deg,#8DB6C5 50%,transparent 50%);
+}
+.firstsidelogintext{
+    position: relative;
+    top: 90px;
+    left: 150px;
+    
+}
+.firstSidelogin h1{
+    font-size: 3.5rem;
+}
+.firstSidelogin p{
+    position: relative;
+    top: 120px;
+    z-index: 1;
+    width: 300px;
+    left: 200px;
+    font-size: 2.5rem;
+    font-weight: 400;
+}
+.imgdivmain{
+    position: absolute;
+    top: 30px;
+    left: -90px;
+}
+.midLogin{
+    height: 5px;
+    width: 450px;
+    background-color: #6796bf;
+    position: relative;
+    transform: rotate(90deg);
+    top: 260px;
+    left:430px
+}
+.logindesign2{
+    width:380px;
+    height: 308px;
+    position: absolute;
+    left: 1002px;
+    top: 0px;
+    background: linear-gradient(219deg,#8DB6C5 50%, #d9d9d9 50%);
+}
+.LoginForm{
+    height: 450px;
+    width: 500px;
+    /* background-color: red; */
+    position: absolute;
+    top:70px;
+    right: 130px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    /* justify-content: center; */
+    align-items: center;
+}
+.LoginForm img{
+    align-items: center;
+}
+.divforaccounttype{
+    display: flex;
+    gap: 15px;
+    position: absolute;
+}
+.inputlogin{
+    height: 100px;
+    width: 100px;
+    /* background-color: black; */
+    position: relative;
+    border: 2px solid rgb(141, 182, 197);
+    /* display: flex;
+    flex-direction: column; */
+    align-content: center;
+    border-radius: 8px;
+    bottom: 12px;
+    cursor: pointer;
+}
+.inputlogin input[type="radio"]{
+    display: none;
+}
+.inputlogin:hover{
+    border-color:  rgb(54, 100, 143);
+}
+.selected{
+    background-color:  rgb(141, 182, 197);
+    color:  rgb(54, 100, 143);
+}
+.detailuser{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    color: #1A5286;
+    font-size: 1.1rem;
+}
+.divofinputfields{
+    position: absolute;
+    bottom: 90px;
+    right: 127px;
+}
+.firstfield{
+    display: flex;
+    flex-direction: column;
+}
+
+.labelfortextfield{
+    position: relative;
+    top:10px;
+    width: 50px;
+    text-align: center;
+    padding: 2px;
+    background-color: #D9D9D9;
+    font-size: 0.9rem;
+    z-index: 1;
+    left:8px;
+    color: #1A5286;
+    font-weight: 500;
+    /* transition:all 0.3s ease; */
+}
+.inputfortextfirld{
+    position: relative;
+    width: 200px;
+    z-index: 0;
+    height: 40px;
+    background-color: #D9D9D9;
+    border:1px solid rgb(54, 100, 143);
+    padding: 10px;
+    color: rgb(34, 83, 128);
+    font-weight: 500;
+}
+.labelfortextfield2{
+    position: relative;
+    top:10px;
+    width: 68px;
+    text-align: center;
+    padding: 2px;
+    background-color: #D9D9D9;
+    font-size: 0.9rem;
+    z-index: 1;
+    left:8px;
+    color: #1A5286;
+    font-weight: 500;
+    /* transition:all 0.3s ease; */
+}
+.eye-icon {
+    cursor: pointer;
+    position: relative;
+    left: -27px
+    ;
+  }
+  .LoginForm h2{
+    color: rgb(54, 100, 143);
+    font-size: 1.9rem;
+    position: relative;
+    top: -20px;
+  }
+  .LoginForm img{
+    position: relative;
+    top: -25px;
+  }
+  .LoginForm p{
+    position: relative;
+    top: -20px;
+    color: rgb(54, 100, 143);
+  }
+  .h4form{
+    color: rgb(54, 100, 143);
+    font-size: 1.1rem;
+    position: relative;
+    top: -20px;
+  }
+  .lastpart{
+    position: absolute;
+    bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .lastpart button{
+    /* height: 50px; */
+    position: relative;
+    width: 150px;
+    height: 35px;
+    background-color:#8DB6C5 ;
+    border: none;
+    border-radius: 4px;
+    left: 25px;
+    cursor: pointer;
+  }
+  .lastpart p{
+    position: relative;
+    top:5px;
+    left: -15px;
+    
+  }
+  .linkoflast{
+    text-decoration: none;
+  }
+  input:-webkit-autofill {
+    background-color: #D9D9D9;
+
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #D9D9D9 inset !important; /* Change white to your desired background color */
+    -webkit-text-fill-color: #333 !important; /* Change the text color if needed */
+    transition: background-color 5000s ease-in-out 0s;
+}
+.divforaccounttype:not(:has(input[type="radio"]:checked))::after {
+    content: '* Please select an account type';
+    color: red;
+    font-size: 12px;
+    display: block;
+    margin-top: 5px;
+    position: absolute;
+    right: -170px;
+    top: 60px;
+}
