@@ -250,7 +250,7 @@ input:-webkit-autofill:active {
     -webkit-text-fill-color: #333 !important; /* Change the text color if needed */
     transition: background-color 5000s ease-in-out 0s;
 }
-.divforaccounttype:not(:has(input[type="radio"]:checked))::after {
+/* .divforaccounttype:not(:has(input[type="radio"]:checked))::after {
     content: '* Please select an account type';
     color: red;
     font-size: 12px;
@@ -259,4 +259,4 @@ input:-webkit-autofill:active {
     position: absolute;
     right: -170px;
     top: 60px;
-}
+} */

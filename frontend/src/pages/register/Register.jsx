@@ -1,17 +1,21 @@
 import { useState } from "react";
-import "./Login.css"
+import "./register.css"
 
 import { FaUser } from "react-icons/fa";
 import { GiShop } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import { CiShop } from "react-icons/ci";
-const Login = () => {
+const Register = () => {
     const [ispassword,showpassowrd] =useState(false)
     const toggeleispassword = ()=>showpassowrd(!ispassword);
-
+    const [isconfirmpassword,showconfirmpassowrd] =useState(false)
+    const toggeleisconfirmpassword = ()=>showconfirmpassowrd(!isconfirmpassword);
+    
     const [email,setEmail]=useState('')
     const [password,setPassword]=useState('')
     const [role,setRole]=useState('')
+    const [name,setName]=useState('')
+    const [cpass,setCpass]=useState('')
   
     const handleSubmit =(event)=>{
         event.preventDefault();
@@ -19,6 +23,7 @@ const Login = () => {
             alert('Please Select an account type');
             return;
         }
+        console.log("name:",name);
         console.log("email:",email);
         console.log("password:",password);
         console.log("role:",role);
@@ -40,8 +45,10 @@ const Login = () => {
                   
                     <div className="LoginForm">
                         <h2>Welcome</h2>
-                        <img src="./lock.png" alt="lock" height="45px" width="35px" />
-                        <p>Login to continue</p>
+                        <div className="create">
+                        <p>Create Your Account </p>
+                        <img className="registerimg" src="./create.png" height="15px" width="20px"></img>
+                        </div>
                         <form action="submit" method="post" onSubmit={handleSubmit}>
                             <h4 className="h4form">Choose Your Account type</h4>
                             <div className="divforaccounttype">
@@ -65,24 +72,37 @@ const Login = () => {
                             </div>
                             <div className="divofinputfields">
                                 <div className="firstfield">
+                                    <label className="labelfortextfield" name="name">Name</label>
+                                    <input className="inputfortextfirld" type="text" name="name" placeholder="Enter your name" value={name} 
+                                    onChange={(e)=>setName(e.target.value)} required/>
+                                </div>
+                                <div className="firstfield">
                                     <label className="labelfortextfield" name="email">Email</label>
-                                    <input className="inputfortextfirld" type="email" name="email" placeholder="Email" value={email} 
+                                    <input className="inputfortextfirld" type="email" name="email" placeholder="Enter your Email" value={email} 
                                     onChange={(e)=>setEmail(e.target.value)} required/>
                                 </div>
                                 <div className="firstfield">
-                                    <label className="labelfortextfield2" name="email">Password</label>
+                                    <label className="labelfortextfield2" name="password">Password</label>
                                     <div className="inputdiv">
-                                    <input className="inputfortextfirld" type={ispassword?"text":"password"} name="email" placeholder="Password" 
+                                    <input className="inputfortextfirld" type={ispassword?"text":"password"} name="password" placeholder="Enter your Password" 
                                     value={password} 
                                     onChange={(e)=>setPassword(e.target.value)} required/>
                                     <span className="eye-icon" onClick={toggeleispassword}>{ispassword ? '👁️' : '🙈'}</span>
                                 </div>
                                 </div>
-                                
+                                <div className="firstfield">
+                                    <label className="labelfortextfield3" name="cpass">Confirm Password</label>
+                                    <div className="inputdiv">
+                                    <input className="inputfortextfirld" type={ispassword?"text":"password"} name="cpass" placeholder="Confirm Password" 
+                                    value={cpass} 
+                                    onChange={(e)=>setCpass(e.target.value)} required/>
+                                    <span className="eye-icon" onClick={toggeleisconfirmpassword}>{isconfirmpassword ? '👁️' : '🙈'}</span>
+                                </div>
+                                </div>
                             </div>
                             <div className="lastpart">
-                            <button type="submit">Login</button>
-                            <p>Not registered yet?<Link className="linkoflast" to='/register'>Create Your account</Link></p></div>
+                            <button type="submit">Register</button>
+                            <p>Already have a account?<Link className="linkoflast" to='/login'>Login</Link></p></div>
                         </form>
                     </div>
                 </div>
@@ -92,4 +112,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default Register
