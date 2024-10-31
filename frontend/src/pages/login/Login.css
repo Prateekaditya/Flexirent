@@ -67,11 +67,11 @@
 .midLogin{
     height: 5px;
     width: 450px;
-    background-color: #6796bf;
+    background-color: #7ba7cd;
     position: relative;
     transform: rotate(90deg);
-    top: 260px;
-    left:430px
+    top: 280px;
+    left:530px
 }
 .logindesign2{
     width:380px;
@@ -250,13 +250,3 @@ input:-webkit-autofill:active {
     -webkit-text-fill-color: #333 !important; /* Change the text color if needed */
     transition: background-color 5000s ease-in-out 0s;
 }
-/* .divforaccounttype:not(:has(input[type="radio"]:checked))::after {
-    content: '* Please select an account type';
-    color: red;
-    font-size: 12px;
-    display: block;
-    margin-top: 5px;
-    position: absolute;
-    right: -170px;
-    top: 60px;
-} */

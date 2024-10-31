@@ -9,7 +9,7 @@ Backend/.env.*.local
 frontend/.env
 frontend/.env.local
 frontend/.env.*.local
-
+Backend/.config.uploads
 # Additional common ignores (optional)
 logs
 *.log

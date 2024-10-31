@@ -64,14 +64,14 @@
     top: 30px;
     left: -90px;
 }
-.midLogin{
+.midLogin1{
     height: 5px;
     width: 450px;
-    background-color: #6796bf;
+    background-color: #7ba7cd;
     position: relative;
     transform: rotate(90deg);
-    top: 260px;
-    left:430px
+    top: 280px;
+    left:510px
 }
 .logindesign2{
     width:380px;
@@ -81,7 +81,7 @@
     top: 0px;
     background: linear-gradient(219deg,#8DB6C5 50%, #d9d9d9 50%);
 }
-.LoginForm{
+.LoginForm1{
     height: 450px;
     width: 500px;
     /* background-color: red; */
@@ -94,15 +94,15 @@
     /* justify-content: center; */
     align-items: center;
 }
-.LoginForm img{
+.LoginForm1 img{
     align-items: center;
 }
-.divforaccounttype{
+.divforaccounttype1{
     display: flex;
     gap: 15px;
     position: absolute;
 }
-.inputlogin{
+.inputlogin1{
     height: 100px;
     width: 100px;
     /* background-color: black; */
@@ -115,10 +115,10 @@
     bottom: 22px;
     cursor: pointer;
 }
-.inputlogin input[type="radio"]{
+.inputlogin1 input[type="radio"]{
     display: none;
 }
-.inputlogin:hover{
+.inputlogin1:hover{
     border-color:  rgb(54, 100, 143);
 }
 .selected{
@@ -134,17 +134,17 @@
     color: #1A5286;
     font-size: 1.1rem;
 }
-.divofinputfields{
+.divofinputfields1{
     position: absolute;
     bottom: 30px;
     right: 127px;
 }
-.firstfield{
+.firstfield1{
     display: flex;
     flex-direction: column;
 }
 
-.labelfortextfield{
+.labelfortextfield1{
     position: relative;
     top:10px;
     width: 50px;
@@ -158,7 +158,7 @@
     font-weight: 500;
     /* transition:all 0.3s ease; */
 }
-.inputfortextfirld{
+.inputfortextfirld1{
     position: relative;
     width: 200px;
     z-index: 0;
@@ -169,7 +169,7 @@
     color: rgb(34, 83, 128);
     font-weight: 500;
 }
-.labelfortextfield2{
+.labelfortextfield21{
     position: relative;
     top:10px;
     width: 68px;
@@ -189,36 +189,36 @@
     left: -27px
     ;
   }
-  .LoginForm h2{
+  .LoginForm1 h2{
     color: rgb(54, 100, 143);
     font-size: 1.9rem;
     position: relative;
     top: -20px;
     right: 8px;
   }
-  .LoginForm img{
+  .LoginForm1 img{
     position: relative;
     top: -25px;
   }
-  .LoginForm p{
+  .LoginForm1 p{
     position: relative;
     top: -20px;
     color: rgb(54, 100, 143);
   }
-  .h4form{
+  .h4form1{
     color: rgb(54, 100, 143);
     font-size: 1.1rem;
     position: relative;
     top: -30px;
   }
-  .lastpart{
+  .lastpart1{
     position: absolute;
     bottom: -40px;
     display: flex;
     flex-direction: column;
     gap: 2px;
   }
-  .lastpart button{
+  .lastpart1 button{
     /* height: 50px; */
     position: relative;
     width: 150px;
@@ -229,7 +229,7 @@
     left: 25px;
     cursor: pointer;
   }
-  .lastpart p{
+  .lastpart1 p{
     position: relative;
     top:5px;
     left: 1px;

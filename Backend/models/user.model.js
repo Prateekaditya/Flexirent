@@ -44,7 +44,16 @@ const userSchema = new mongoose.Schema({
         addressType:{
             type:String
         }
-    }]
+    }],
+    cart:{
+        type:Array,
+        default:[]
+    },
+    order:{
+        type:Array,
+        default:[]
+    }
+
 })
 
 const  userModel = mongoose.model('User',userSchema);

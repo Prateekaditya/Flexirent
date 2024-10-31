@@ -39,20 +39,20 @@ const Register = () => {
                     <img className="imgdivmain" src="./person.png" alt="person" width="450px" height="507px" />
                     <div className="logindesign"></div>
                 </div>
-                <div className="midLogin"></div>
+                <div className="midLogin1"></div>
                 <div className="secondSideLogin">
                     <div className="logindesign2"></div>
                   
-                    <div className="LoginForm">
+                    <div className="LoginForm1">
                         <h2>Welcome</h2>
                         <div className="create">
                         <p>Create Your Account </p>
                         <img className="registerimg" src="./create.png" height="15px" width="20px"></img>
                         </div>
                         <form action="submit" method="post" onSubmit={handleSubmit}>
-                            <h4 className="h4form">Choose Your Account type</h4>
-                            <div className="divforaccounttype">
-                            <label className={`inputlogin  ${role ==='customer'? 'selected' : ' '}`}>
+                            <h4 className="h4form1">Choose Your Account type</h4>
+                            <div className="divforaccounttype1">
+                            <label className={`inputlogin1  ${role ==='customer'? 'selected' : ' '}`}>
                                 <input type="radio" name="user" value='customer'
                                 checked={role==='customer'} 
                                 onChange={(e)=>{setRole(e.target.value)}} />
@@ -61,7 +61,7 @@ const Register = () => {
                                     <span>User</span>
                                 </div>
                             </label>
-                            <label className={`inputlogin ${role === 'seller' ? 'selected': ''}`}>
+                            <label className={`inputlogin1 ${role === 'seller' ? 'selected': ''}`}>
                                 <input type="radio" name="user" value='seller' checked={role==='seller' }
                                 onChange={(e)=>{setRole(e.target.value)}} />
                                 <div className="detailuser">
@@ -70,21 +70,21 @@ const Register = () => {
                                 </div>
                             </label>
                             </div>
-                            <div className="divofinputfields">
+                            <div className="divofinputfields1">
                                 <div className="firstfield">
-                                    <label className="labelfortextfield" name="name">Name</label>
-                                    <input className="inputfortextfirld" type="text" name="name" placeholder="Enter your name" value={name} 
+                                    <label className="labelfortextfield1" name="name">Name</label>
+                                    <input className="inputfortextfirld1" type="text" name="name" placeholder="Enter your name" value={name} 
                                     onChange={(e)=>setName(e.target.value)} required/>
                                 </div>
                                 <div className="firstfield">
-                                    <label className="labelfortextfield" name="email">Email</label>
-                                    <input className="inputfortextfirld" type="email" name="email" placeholder="Enter your Email" value={email} 
+                                    <label className="labelfortextfield1" name="email">Email</label>
+                                    <input className="inputfortextfirld1" type="email" name="email" placeholder="Enter your Email" value={email} 
                                     onChange={(e)=>setEmail(e.target.value)} required/>
                                 </div>
                                 <div className="firstfield">
-                                    <label className="labelfortextfield2" name="password">Password</label>
+                                    <label className="labelfortextfield21" name="password">Password</label>
                                     <div className="inputdiv">
-                                    <input className="inputfortextfirld" type={ispassword?"text":"password"} name="password" placeholder="Enter your Password" 
+                                    <input className="inputfortextfirld1" type={ispassword?"text":"password"} name="password" placeholder="Enter your Password" 
                                     value={password} 
                                     onChange={(e)=>setPassword(e.target.value)} required/>
                                     <span className="eye-icon" onClick={toggeleispassword}>{ispassword ? '👁️' : '🙈'}</span>
@@ -93,14 +93,14 @@ const Register = () => {
                                 <div className="firstfield">
                                     <label className="labelfortextfield3" name="cpass">Confirm Password</label>
                                     <div className="inputdiv">
-                                    <input className="inputfortextfirld" type={ispassword?"text":"password"} name="cpass" placeholder="Confirm Password" 
+                                    <input className="inputfortextfirld1" type={ispassword?"text":"password"} name="cpass" placeholder="Confirm Password" 
                                     value={cpass} 
                                     onChange={(e)=>setCpass(e.target.value)} required/>
                                     <span className="eye-icon" onClick={toggeleisconfirmpassword}>{isconfirmpassword ? '👁️' : '🙈'}</span>
                                 </div>
                                 </div>
                             </div>
-                            <div className="lastpart">
+                            <div className="lastpart1">
                             <button type="submit">Register</button>
                             <p>Already have a account?<Link className="linkoflast" to='/login'>Login</Link></p></div>
                         </form>

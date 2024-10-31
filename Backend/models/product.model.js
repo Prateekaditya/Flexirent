@@ -1,6 +1,11 @@
 const mongoose = require('mongoose')
 
 const productSchema = new mongoose.Schema({
+    creator:{
+      type:mongoose.Schema.Types.ObjectId,
+      ref:'User',
+      require:true
+    },
     name:{
         type:String,
         require:true
@@ -30,7 +35,9 @@ const productSchema = new mongoose.Schema({
     reviews: [
         {
           user: {
-            type: Object,
+            type:mongoose.Schema.Types.ObjectId,
+            ref:"User",
+            require:true
           },
           rating: {
             type: Number,
@@ -47,17 +54,6 @@ const productSchema = new mongoose.Schema({
           },
         },
       ],
-      ratings: {
-        type: Number,
-      },
-      shopId: {
-        type: String,
-        required: true,
-      },
-      shop: {
-        type: Object,
-        required: true,
-      },
       sold_out: {
         type: Number,
         default: 0,
