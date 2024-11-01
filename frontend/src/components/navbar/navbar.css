@@ -30,3 +30,79 @@
     border-radius: 10px;
     padding: 12px;
     }
+.inputForseller{
+    width: 500px;
+    height: 40px;
+    padding: 10px;
+    padding-left: 20px;
+    border-radius: 15px;
+    border: none;
+    /* font-size: rem; */
+}
+.input_serach{
+    position: relative;
+    top: 5px;
+    left: -35px;
+    
+    color: rgb(68, 67, 67);
+}
+.inputForseller:focus{
+    outline: 2px solid #ECDFCC;
+    /* border: 2px;
+    border-color: #ECDFCC; */
+}
+.forseller{
+    display: flex;
+    /* width: 700px; */
+    /* background-color: antiquewhite; */
+    
+}
+.forProfile{
+    display: flex;
+    border-radius: 10px;
+    background-color:#3C3D37;
+    position: relative;
+    left: 300px;
+    height: 40px;
+    gap: 10px;
+    justify-content: center;
+    /* align-content: center; */
+    width: 120px;
+    padding:8px;
+}
+.forProfile:hover{
+    color: white;
+    background-color: #73746e;
+    transition: 200ms;
+}
+.menu_dropdown{
+    position: absolute;
+    right: 59px;
+    top: 60px;
+    transition: 200ms;
+    height: 100px;
+    border-radius: 10px;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 130px;
+    background-color: white;
+    padding: 15px;
+    justify-content: center;
+    /* align-items: center; */
+    font-size: 1.1rem;
+}
+.nav-link{
+    text-decoration: none;
+    color: #1E201E;
+    display: flex;
+    gap: 10px;
+}
+.nav-link:hover{
+    background-color: #3C3D37;
+    color: white;
+    padding: 5px;
+    border-radius: 10px;
+    transition: 200ms;
+}

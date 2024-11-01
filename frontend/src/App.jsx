@@ -3,6 +3,7 @@ import Login from "./pages/login/Login"
 import Register from "./pages/register/Register"
 import Landing from "./pages/landingPage/Landing"
 import {BrowserRouter as Router,Route,Routes} from "react-router-dom"
+import SellerHome from "./pages/sellerHome/SellerHome"
 import "./App.css"
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
         <Route path='/login' element= {<Login/>}/>
         <Route path='/register' element={<Register/>}/>
         <Route path='/users' element={<Home/>}/>
+        <Route path='/seller' element={<SellerHome/>}/>
       </Routes>
     </Router>
     </div>
