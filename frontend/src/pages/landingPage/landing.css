@@ -1,0 +1,102 @@
+.landing_container{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #ECDFCC;
+}
+.part_container{
+    display: flex;
+    flex-direction: column;
+}
+.otherPart{
+    position: relative;
+    /* background-color: aqua; */
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    
+}
+.imageofLanding{
+    /* background-color: red; */
+    padding: 10px;
+    width: 650px;
+}
+.amanwithlappi{
+    height: 550px;
+}
+.flexititle{
+    display: flex;
+    padding: 12px;
+    gap: 5px;
+    
+}
+.rolesgetting{
+    /* background-color: aqua; */
+    width: 540px;
+    padding: 10px;
+    margin-top: 90px;
+}
+.gradient-text {
+    background: linear-gradient(to right, #2563eb, #9333ea);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.firstsparkles{
+    color: #2563eb;
+    font-weight: 700;
+    font-size: 1.8rem;
+}
+.secondsparkles{
+    color: #9333ea;
+    font-weight: 700;
+    font-size: 1.8rem;
+}
+.rolesgetting h5{
+    font-size: 1.5rem;
+    padding: 12px;
+}
+.roles{
+    display: flex;
+    gap: 10px;
+    justify-content: space-around;
+    padding: 10px;
+}
+.seller{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #1E201E;
+    border-radius: 10px;
+    padding: 10px;
+    height: 120px;
+    width: 120px;
+    font-size: 1.3rem;
+
+}
+.customer{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #1E201E;
+    border-radius: 10px;
+    padding: 10px;
+    height: 120px;
+    width: 120px;
+    font-size: 1.3rem;
+
+}
+.seller:hover{
+    scale: 1.1;
+    border: 3px dotted #1E201E;
+    transition: 200ms;
+}
+.customer:hover{
+    scale: 1.1;
+    border: 3px dotted #1E201E;
+    transition: 200ms;
+}

@@ -1,0 +1,32 @@
+.navbarbox{
+    position: relative;
+    width: 100%;
+    color: white;
+    padding: 20px;
+    display: flex;
+    background-color: #1E201E;
+    justify-content: space-between;
+}
+.iconOflaptop{
+    position: relative;
+    top: 6px;
+
+}
+.login_register{
+    /* background-color: aliceblue; */
+    /* position: absolute; */
+    height: 30px;
+    padding: 8px;
+    /* width: 20px; */
+    /* width: 100%; */
+}
+.login_register_link{
+    height: 30px;
+    text-decoration: none;
+    color:black;
+    justify-content: center;
+    background-color:#ECDFCC;
+    border: none;
+    border-radius: 10px;
+    padding: 12px;
+    }
