@@ -57,12 +57,11 @@ const register = async (req, res) => {
         await newUser.save();
         
         // Generate token
-        const token = createJwt(newUser.email);
+        // const token = createJwt(newUser.email);
 
         return res.status(201).json({
             success: true,
             message: "User Created Successfully",
-            token,
             user: {
                 name: newUser.name,
                 email: newUser.email,

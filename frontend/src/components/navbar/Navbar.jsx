@@ -1,17 +1,57 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./navbar.css"
 import { FaLaptopHouse } from "react-icons/fa";
 import { FaSearch,FaHome } from "react-icons/fa";
 import { FaUserTie } from "react-icons/fa";
 import { BiLogOut } from "react-icons/bi";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 const Navbar = () => {
-  const [isLogin,setLogin]=useState(true)
-  const [userRole,setUserRole] = useState('seller')
+  const navigate = useNavigate()
+  const [isLogin,setLogin]=useState(false)
+  const [userRole,setUserRole] = useState('')
   const [isOpen,setOpen] =useState(false)
+  const [name,setName]=useState('')
+  useEffect(()=>{
+    const checkLoginStatus = ()=>{
+    const userString = localStorage.getItem('user')
+    const token = localStorage.getItem('token')
+
+
+    try{
+     const user =userString ? JSON.parse(userString) : null
+     if(user && token){
+      setLogin(true)
+      setUserRole(user.role)
+      setName(user.name)
+     }
+     else{
+      setLogin(false)
+      setUserRole(null)
+     }
+    }
+    catch (e){
+      console.log(e.message)
+      setLogin(false)
+      setUserRole(null)
+    }
+    }
+    checkLoginStatus()
+    window.addEventListener('storage',checkLoginStatus)
+    
+    return ()=>{
+      window.removeEventListener('storage',checkLoginStatus)
+    }
+  },[])
 
   const toggleDropDown =()=>{
     setOpen(!isOpen)
+  }
+  const handleLogout = ()=>{
+    localStorage.removeItem('user')
+    localStorage.removeItem('token')
+    setLogin(false)
+    setUserRole(null)
+    navigate('/login')
   }
   return (
     <div>
@@ -27,11 +67,11 @@ const Navbar = () => {
           <div className='inputfieldDiv'> <input className='inputForseller' type='text' placeholder='Search'></input> <FaSearch className='input_serach'/></div>
           <div className="forProfile" onClick={toggleDropDown}>
             <FaUserTie/>
-            <span>Seller</span>
+            <span>{name}</span>
           </div>
           {isOpen && (<div className='menu_dropdown'>
             <Link className="nav-link" to="/seller"><FaHome/>Home</Link>
-             <Link className="nav-link" to="/login"><BiLogOut/>Logout</Link>
+             <span className="nav-link"  onClick={handleLogout}><BiLogOut/>Logout</span>
           </div>)}
           </div>
           </>
@@ -46,8 +86,7 @@ const Navbar = () => {
            )}
             
             <div className="login_register">
-                {isLogin ?
-                 (''):(<Link  className='login_register_link' to='/login'>Login/Register</Link>)}
+                {!isLogin && (<Link  className='login_register_link' to='/login'>Login/Register</Link>)}
             </div>
         </div>
     </div>

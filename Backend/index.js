@@ -1,6 +1,7 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const connectDB = require('./DB/connectDb');
+const cors= require('cors')
 const userRoute = require('./routes/user.route')
 const productRoute = require('./routes/product.route')
 const app  =express();
@@ -18,6 +19,11 @@ app.get('/',(req,res)=>{
         messsage:"All good"
     })
 })
+app.use(
+    cors({
+        origin:'*'
+    })
+)
 app.use('/users',userRoute)
 app.use('/products',productRoute)
 app.listen(PORT,()=>{

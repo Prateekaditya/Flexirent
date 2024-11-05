@@ -1,27 +1,52 @@
 import { useState } from "react";
 import "./Login.css"
-
+import axios from "axios"
 import { FaUser } from "react-icons/fa";
 import { GiShop } from "react-icons/gi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { CiShop } from "react-icons/ci";
 const Login = () => {
     const [ispassword,showpassowrd] =useState(false)
     const toggeleispassword = ()=>showpassowrd(!ispassword);
-    
+    const navigate =useNavigate()
     const [email,setEmail]=useState('')
     const [password,setPassword]=useState('')
     const [role,setRole]=useState('')
-  
-    const handleSubmit =(event)=>{
+    const [error,setError]=useState('')
+    const handleSubmit =async(event)=>{
         event.preventDefault();
         if(!role){
-            alert('Please Select an account type');
+            setError('Please Select an account type');
             return;
         }
-        console.log("email:",email);
-        console.log("password:",password);
-        console.log("role:",role);
+        if(!email){
+            setError('Please provide your email');
+            return;
+        }
+        if(!password){
+            setError('Please provide your password');
+            return;
+        }
+        try{
+            const response = await axios.post('http://localhost:5555/users/login',{
+                email,
+                pass:password,
+                role
+            })
+            localStorage.setItem('token',response.data.token)
+            localStorage.setItem('user',JSON.stringify(response.data.user))
+            if(response.data.user.role=== 'seller'){
+                navigate('/seller')
+            }
+            else{
+                navigate('/users')
+            }
+        }
+        catch(e){
+            setError(e.message)
+            console.log(e.message)
+        }
+        
     }
 
   return (
@@ -82,6 +107,7 @@ const Login = () => {
                             </div>
                             <div className="lastpart">
                             <button type="submit">Login</button>
+                            <div className="error_message">{error}</div>
                             <p>Not registered yet?<Link className="linkoflast" to='/register'>Create Your account</Link></p></div>
                         </form>
                     </div>

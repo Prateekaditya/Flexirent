@@ -1,0 +1,32 @@
+.sellerBarBOdy{
+    background-color: #1E201E;
+    /* background-color: aqua; */
+    height: 88.5%;
+    position: absolute;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    color: #ECDFCC;
+    gap: 40px;
+    /* justify-content: center; */
+    align-items: center;
+    padding: 60px;
+}
+.sellerBarBOdy Link{
+    text-decoration: none;
+}
+.linkOfSeller{
+    text-decoration: none;
+    color: #ECDFCC;
+}
+.sellerEdit{
+    display: flex;
+    gap: 15px;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+.linkOfSeller:hover{
+    color:#736857;
+    text-decoration: underline;
+    transition: 200ms;
+}

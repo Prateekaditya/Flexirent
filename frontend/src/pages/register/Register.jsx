@@ -1,32 +1,55 @@
 import { useState } from "react";
 import "./register.css"
-
+import axios from 'axios'
 import { FaUser } from "react-icons/fa";
 import { GiShop } from "react-icons/gi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { CiShop } from "react-icons/ci";
 const Register = () => {
     const [ispassword,showpassowrd] =useState(false)
     const toggeleispassword = ()=>showpassowrd(!ispassword);
     const [isconfirmpassword,showconfirmpassowrd] =useState(false)
     const toggeleisconfirmpassword = ()=>showconfirmpassowrd(!isconfirmpassword);
-    
+    const navigate = useNavigate();
     const [email,setEmail]=useState('')
     const [password,setPassword]=useState('')
     const [role,setRole]=useState('')
     const [name,setName]=useState('')
     const [cpass,setCpass]=useState('')
-  
-    const handleSubmit =(event)=>{
+    const [error,setError]=useState('')
+    const handleSubmit =async(event)=>{
         event.preventDefault();
         if(!role){
-            alert('Please Select an account type');
+            setError('Please Select a role');
             return;
         }
-        console.log("name:",name);
-        console.log("email:",email);
-        console.log("password:",password);
-        console.log("role:",role);
+        if(!name){
+            setError('Please Select a name');
+            return;
+        }
+        if(!email){
+            setError('Please Select a email');
+            return;
+        }
+        if(password !== cpass){
+            setError('Confirm password not equal to password');
+            return;
+        }
+        try{
+            await axios.post('http://localhost:5555/users/register',{
+                name,
+                email,
+                pass:password,
+                cpass,
+                role
+            })
+            navigate('/login')
+        }
+        catch(e){
+            setError(e.message)
+            console.log(e.message)
+        }
+
     }
 
   return (
@@ -93,7 +116,7 @@ const Register = () => {
                                 <div className="firstfield">
                                     <label className="labelfortextfield3" name="cpass">Confirm Password</label>
                                     <div className="inputdiv">
-                                    <input className="inputfortextfirld1" type={ispassword?"text":"password"} name="cpass" placeholder="Confirm Password" 
+                                    <input className="inputfortextfirld1" type={isconfirmpassword?"text":"password"} name="cpass" placeholder="Confirm Password" 
                                     value={cpass} 
                                     onChange={(e)=>setCpass(e.target.value)} required/>
                                     <span className="eye-icon" onClick={toggeleisconfirmpassword}>{isconfirmpassword ? '👁️' : '🙈'}</span>
@@ -102,6 +125,7 @@ const Register = () => {
                             </div>
                             <div className="lastpart1">
                             <button type="submit">Register</button>
+                            <div className="error_message" >{error}</div>
                             <p>Already have a account?<Link className="linkoflast" to='/login'>Login</Link></p></div>
                         </form>
                     </div>

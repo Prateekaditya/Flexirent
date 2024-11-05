@@ -287,3 +287,7 @@ input:-webkit-autofill:active {
     color: #1A5286;
     font-weight: 500;
 }
+.error_message{
+    color: red;
+    
+}
