@@ -12,7 +12,7 @@ dotenv.config();
 const PORT = process.env.PORT || 3000;
 connectDB();
 app.use(express.json());
-
+app.use(express.static('config'))
 app.get('/',(req,res)=>{
     console.log("Get Request on / Route");
     return res.status(200).json({

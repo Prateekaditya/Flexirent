@@ -6,7 +6,7 @@ const upload = require('../config/multer')
 
 
 router.get('/',protect,controllers.getProducts)
-router.post('/create',protect,isSeller,(upload.single("image")),controllers.createProduct)
+router.post('/create',protect,(upload.single("image")),isSeller,controllers.createProduct)
 router.get('/seller',protect,isSeller,controllers.getSellerProduct)
 router.patch('/review/:id',protect,controllers.addReview)
 router.patch('/:id',protect,isSeller,(upload.single("image")),controllers.editProduct)

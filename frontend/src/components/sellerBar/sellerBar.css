@@ -1,17 +1,18 @@
-.sellerBarBOdy{
+.sellerBarBOdy {
     background-color: #1E201E;
-    /* background-color: aqua; */
-    height: 88.5%;
-    position: absolute;
+    height: 100vh;
+    position: fixed; /* Fixed position */
+    top: 80px;
     width: 300px;
     display: flex;
     flex-direction: column;
     color: #ECDFCC;
     gap: 40px;
-    /* justify-content: center; */
     align-items: center;
-    padding: 60px;
+    padding: 60px 0;
+    z-index: 999; /* Ensure it stays above other content */
 }
+
 .sellerBarBOdy Link{
     text-decoration: none;
 }

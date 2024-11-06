@@ -1,0 +1,54 @@
+.imgProductSeller{
+    height: 220px;
+    width: 220px;
+    position: relative;
+    left: 20px;
+}
+.productName{
+    position: relative;
+    left: 20px;
+}
+.boxOfproduct{
+    display: flex;
+    flex-direction: column  ;
+    background-color: #ECDFCC;
+    /* z-index: 1; */
+    position: relative;
+    padding: 25px;
+    left: 350px;
+    width: 300px;
+    justify-content: center;
+    /* align-items: center; */
+    height: 350px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    border-radius: 10%;
+    gap: 5px;
+    top: 15px;
+}
+.details{
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    left: -23px;
+}
+.icons{
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    left: -29px;
+    font-size:1.3rem;
+}
+.deleteicon{
+    color: red;
+}
+.deleteicon:hover{
+    color: rgb(115, 1, 1);
+    transition: 200ms;
+}
+.editicons{
+    color: rgb(38, 200, 38);
+}
+.editicons:hover{
+    color: green;
+    transition: 200ms ;
+}

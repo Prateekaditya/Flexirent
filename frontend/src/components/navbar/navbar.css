@@ -1,12 +1,15 @@
-.navbarbox{
-    position: relative;
+.navbarbox {
+    position: fixed; /* Fixed position */
+    top: 0;
     width: 100%;
     color: white;
     padding: 20px;
     display: flex;
     background-color: #1E201E;
     justify-content: space-between;
+    z-index: 1000; /* Ensure it stays above other content */
 }
+
 .iconOflaptop{
     position: relative;
     top: 6px;

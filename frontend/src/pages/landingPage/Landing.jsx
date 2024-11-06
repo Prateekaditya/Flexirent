@@ -6,6 +6,8 @@ import { FaUser } from "react-icons/fa";
 import { GiShop } from "react-icons/gi";
 import { CiShop } from "react-icons/ci";
 const Landing = () => {
+    
+
   return (
     <>
         <div className="landing_container">

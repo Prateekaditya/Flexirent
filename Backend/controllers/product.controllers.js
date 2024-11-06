@@ -3,41 +3,50 @@ const userModel = require('../models/user.model')
 const upload = require('../config/multer')
 const fs = require('fs')
 
-const createProduct = async(req,res) =>{
-    try{
-        const imageName =req.file.filename
-        const {name, description, category, price, duration, stock}= req.body;
-        const seller = await userModel.findById(req.user._id)
-        if(seller.role!=="seller"){
-            return res.status(400).json({
-                success:false,
-                message:"You are not a Seller imposter!!!!!"
-            })
-        }
-        const product = await productModel.create({
-            creator:req.user._id,
-            name,
-            description,
-            category,
-            price,
-            duration,
-            stock,
-            images:imageName
-        })
-        await product.save();
-        return res.status(200).json({
-            message:"Product Created",
-            success:true
-        })
+const createProduct = async (req, res) => {
+    try {
+      // Check if a file was uploaded
+    //   if (!req.files || Object.keys(req.files).length === 0) {
+    //     return res.status(400).json({
+    //       success: false,
+    //       message: 'No image provided',
+    //     });
+    //   }
+    console.log(req.file)
+  
+      const { name, description, category, price, duration, stock } = req.body;
+      const seller = await userModel.findById(req.user._id);
+  
+      if (seller.role !== 'seller') {
+        return res.status(400).json({
+          success: false,
+          message: 'You are not a Seller imposter!!!!!',
+        });
+      }
+  
+      const product = await productModel.create({
+        creator: req.user._id,
+        name,
+        description,
+        category,
+        price,
+        duration,
+        stock,
+        images: req.file.filename, // Access the file under 'image' field
+      });
+  
+      await product.save();
+      return res.status(200).json({
+        message: 'Product Created',
+        success: true,
+      });
+    } catch (e) {
+      return res.status(500).json({
+        error: `${e.message}`,
+      });
     }
-    catch(e){
-        return res.status(500).json({
-            error:`${e.message}`
-        })
-    }
-}
-
-const getProducts = async(req,res) =>{
+  };
+  const getProducts = async(req,res) =>{
     try{
         const user = req.body;
         if (!user) {
