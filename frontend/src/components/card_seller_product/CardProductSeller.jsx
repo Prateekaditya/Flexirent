@@ -9,7 +9,7 @@ const CardProductSeller = ({product}) => {
   }
 
   return (
-    <div>
+    <div className='mainBox'>
       {product.map((item) => ( // Changed 'product' to 'item' to avoid naming confusion
         <div key={item._id} className="boxOfproduct">
             <div className="imgProduct">
@@ -18,7 +18,7 @@ const CardProductSeller = ({product}) => {
             </div>
             <p className='productName'>Name: {item.name}</p>
             <div className="details">
-              <p>price: ${item.price}</p>
+              <p>price: ₹{item.price}</p>
               <p>stock: {item.stock}</p>
             </div>
            

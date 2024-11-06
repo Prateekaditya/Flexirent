@@ -6,13 +6,13 @@ import CardProductSeller from '../../components/card_seller_product/CardProductS
 import axios from 'axios'
 
 const GetProducts = () => {
-  const [products, setProducts] = useState([]); // Initialize with empty array
+  const [products, setProducts] = useState([]); 
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         const token = localStorage.getItem('token');
-        console.log("Token:", token); // Debug token
+        
   
         const response = await axios.get('http://localhost:5555/products/seller', {
           headers: {
@@ -21,8 +21,6 @@ const GetProducts = () => {
           }
         });
         
-        console.log("Full response:", response); // Debug full response
-        console.log("Products data:", response.data); // Debug products data
         
         if (response.data.data) {
           setProducts(response.data.data);
@@ -42,10 +40,9 @@ const GetProducts = () => {
         <div className="container">
             <Navbar/>
             <SellerBar/>
-            <div className="mainProduct">
             <div className="Products_card_seller">
                 <CardProductSeller product={products}/>
-            </div></div>
+            </div>
         </div>
     </div>
   )

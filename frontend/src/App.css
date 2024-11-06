@@ -5,3 +5,14 @@
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
 }
+
+
+/* Optionally, hide scrollbars specifically for WebKit browsers */
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Optionally, hide scrollbars specifically for WebKit browsers */
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+  display: none;
+}

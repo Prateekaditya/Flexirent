@@ -10,6 +10,7 @@
     padding: 40px;
     width: 1234px;
     left: 300px;
+    top: 80px;
     cursor: pointer;
     position: relative;
 }
@@ -74,7 +75,7 @@
     width: 100%;
     position: relative;
   }
-  .Products_card_seller{
+  /* .Products_card_seller{
     min-height: 800px;
     max-height: auto;
     background-color: #ECDFCC;
@@ -84,5 +85,19 @@
     gap:50px ;
 
     /* overflow: hidden; */
+
+/*  */
+.Products_card_seller{
+    /* background-color: yellowgreen; */
     margin-top: 80px;
-  }
+    /* background-color: #ECDFCC; */
+    /* height: 100vmax; */
+    /* height: 100vmax; */
+    width: 100%;
+    
+
+}
+
+/* .container::-webkit-scrollbar {
+    display: none;
+} */

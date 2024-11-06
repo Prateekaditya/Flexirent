@@ -48,7 +48,7 @@ const Create = () => {
     formData.append('price', price);
     formData.append('duration', durationFull);
     formData.append('stock', stock);
-    formData.append('images', images);
+    formData.append('image', images);
     
     try{
       const authToken = localStorage.getItem('token');

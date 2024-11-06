@@ -16,7 +16,7 @@
     position: relative;
     padding: 25px;
     left: 350px;
-    width: 300px;
+    width: 350px;
     justify-content: center;
     /* align-items: center; */
     height: 350px;
@@ -29,13 +29,16 @@
     display: flex;
     justify-content: space-around;
     position: relative;
-    left: -23px;
+    /* left: -20px; */
+    left: -14px;
 }
 .icons{
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-end;
     position: relative;
-    left: -29px;
+    /* left: -29px; */
+    right: 10px;
+    gap: 5px;
     font-size:1.3rem;
 }
 .deleteicon{
@@ -51,4 +54,21 @@
 .editicons:hover{
     color: green;
     transition: 200ms ;
+}
+.mainBox{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    width: 1200px;
+    position: relative;
+    height: fit-content;
+    background-color: #ECDFCC;
+    /* justify-content: center; */
+    
+    /* background-color: red; */
+    /* width: 1200px;     */
+    /* gap: 20px; */
+}
+.mainBox::-webkit-scrollbar {
+    display: none;
 }
