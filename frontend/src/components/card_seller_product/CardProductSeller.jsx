@@ -5,7 +5,7 @@ import "./cardproductseller.css"
 
 const CardProductSeller = ({product}) => {
   if (!product || product.length === 0) {
-    return <div className='boxOfproduct'>No products found</div>;
+    return <div className='boxOfproduct1'>No products found</div>;
   }
 
   return (

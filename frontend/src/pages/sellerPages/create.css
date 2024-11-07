@@ -101,3 +101,12 @@
 /* .container::-webkit-scrollbar {
     display: none;
 } */
+.boxforcreation{
+    display: flex;
+
+}
+.imgofnature{
+    position: relative;
+    top: 100px;
+    left: -100px;
+}

@@ -72,3 +72,19 @@
 .mainBox::-webkit-scrollbar {
     display: none;
 }
+.boxOfproduct1{
+    display: flex;
+    flex-direction: column  ;
+    background-color: #ECDFCC;
+    /* z-index: 1; */
+    position: relative;
+    padding: 25px;
+    left: 350px;
+    width: 350px;
+    justify-content: center;
+    /* align-items: center; */
+    height: 350px;
+   gap: 5px;
+    top: 15px;
+
+}

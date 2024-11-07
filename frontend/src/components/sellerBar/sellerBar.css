@@ -31,3 +31,10 @@
     text-decoration: underline;
     transition: 200ms;
 }
+.active{
+    background-color: rgb(106, 106, 106);
+    padding: 15px;
+    border-radius: 8px;
+    color: #1E201E;
+    transition: 200ms;
+}

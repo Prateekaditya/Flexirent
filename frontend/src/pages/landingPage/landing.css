@@ -13,6 +13,7 @@
     /* background-color: aqua; */
     padding: 10px;
     display: flex;
+    margin-top: 80px;
     justify-content: space-around;
     
 }
@@ -74,7 +75,7 @@
     height: 120px;
     width: 120px;
     font-size: 1.3rem;
-
+    text-decoration: none;
 }
 .customer{
     display: flex;
@@ -99,4 +100,8 @@
     scale: 1.1;
     border: 3px dotted #1E201E;
     transition: 200ms;
+}
+.sellerLink{
+    text-decoration: none;
+    color: #1E201E;
 }

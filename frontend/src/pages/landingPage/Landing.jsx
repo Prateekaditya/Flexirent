@@ -1,12 +1,29 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "./landing.css"
 import Navbar from '../../components/navbar/Navbar'
+import { Link, useNavigate } from 'react-router-dom'
 import { IoSparklesOutline } from "react-icons/io5";
 import { FaUser } from "react-icons/fa";
 import { GiShop } from "react-icons/gi";
 import { CiShop } from "react-icons/ci";
 const Landing = () => {
-    
+    const [role,setUserRole]=useState(' ');
+    useEffect(()=>{
+        const detaitls = ()=>{
+            try{
+                const response = localStorage.getItem('user')
+                if(response){
+                    const {role}= JSON.parse(response)
+                    setUserRole(role);
+                    console.log(role)
+                }
+            }
+            catch(e){
+                console.log(e.message)
+            }
+        }
+        detaitls();
+    },[])
 
   return (
     <>
@@ -27,15 +44,18 @@ const Landing = () => {
                         </div>
                         <h5><center>Join FlexiRent as either a seller offering products for rent or a customer searching for items to rent</center></h5>
                         <div className="roles">
-                            <div className="seller">
+                            { role === 'seller'?(
+                            <Link className='sellerLink' to='/seller'><div className="seller">
                                 <CiShop  className='rolesicon'/>
-                                <span>Seller</span>
+                                <span> Seller</span>
                                 {/* <p><center>List your products and reach thousands of potential customers through our expansive marketplace</center></p> */}
-                            </div>
+                            </div></Link>):role==='customer'?(
                             <div className="customer">
                                 <FaUser className='rolesicon'/>
                                 <span>Customer</span>
-                            </div>
+                            </div>):(<div>
+                                You Have No role
+                            </div>)}
                         </div>
                     </div>
                 </div>

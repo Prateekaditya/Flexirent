@@ -79,6 +79,7 @@ const Create = () => {
         <div className="vonatiner">
         <Navbar/>
         <SellerBar/>
+        <div className="boxforcreation">
         <div className="formforCreation">
             <h4>Create Your Product</h4>
             <form className='form_creation_product' action="/create" method='post' encType='multipart/form-data' onSubmit={handleSubmit}>
@@ -127,6 +128,8 @@ const Create = () => {
                 <div className="error_message">{error}</div>
                 <button className='creationSubmit' type='submit'>Create</button>
             </form>
+        </div>
+        <img className='imgofnature' src="./pcwithnature.png" alt="nature"  height="600px" width="600px"/>
         </div></div>
     </div>
   )

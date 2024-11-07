@@ -4,8 +4,11 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
+  /* background-color: #ECDFCC; */
 }
-
+body{
+  background-color: #ecdfcc;
+}
 
 /* Optionally, hide scrollbars specifically for WebKit browsers */
 html::-webkit-scrollbar, body::-webkit-scrollbar {
