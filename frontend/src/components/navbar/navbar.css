@@ -109,3 +109,59 @@
     border-radius: 10px;
     transition: 200ms;
 }
+.inputForuser{
+    width: 500px;
+    height: 40px;
+    padding: 10px;
+    padding-left: 20px;
+    border-radius: 15px;
+    border: none;
+    /* font-size: rem; */
+}
+.input_serach{
+    position: relative;
+    top: 5px;
+    left: -35px;
+    
+    color: rgb(68, 67, 67);
+}
+.inputForuser:focus{
+    outline: 2px solid #ECDFCC;
+    /* border: 2px;
+    border-color: #ECDFCC; */
+}
+.inputfieldDivuser{
+    position: relative;
+    left: -280px;
+    width: max-content;
+    /* background-color: #ECDFCC; */
+}
+.pagelinkforUser{
+    position: absolute;
+    display: flex;
+    right: 280px;
+    /* justify-content: space-between; */
+    gap: 20px;
+  top: 30px;
+  font-size: 0.9rem;
+  padding: 4px;
+    /* background-color: #ECDFCC; */
+    
+}
+.pagelinkforUser div{
+    cursor: pointer;
+}
+.cart{
+    /* background-color: aliceblue; */
+    color: white;
+    padding: 3px;
+    height: 30px;
+    width: 40px;
+    /* border: 1px solid #73746e; */
+    /* border-radius: 50%; */
+    /* border-radius: 20%; */
+    font-size: 1.6rem;
+    position: relative;
+    top: -8px;
+    left: 70px;
+}

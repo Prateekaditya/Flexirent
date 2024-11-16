@@ -47,12 +47,12 @@ const Landing = () => {
                             { role === 'seller'?(
                             <Link className='sellerLink' to='/seller'><div className="seller">
                                 <CiShop  className='rolesicon'/>
-                                <span> Seller</span>
+                                <span> Seller Dashboard</span>
                                 {/* <p><center>List your products and reach thousands of potential customers through our expansive marketplace</center></p> */}
                             </div></Link>):role==='customer'?(
                             <div className="customer">
                                 <FaUser className='rolesicon'/>
-                                <span>Customer</span>
+                                <span>Customer Dashboard</span>
                             </div>):(<div>
                                 You Have No role
                             </div>)}

@@ -5,6 +5,7 @@ import { FaSearch,FaHome } from "react-icons/fa";
 import { FaUserTie } from "react-icons/fa";
 import { BiLogOut } from "react-icons/bi";
 import { Link, useNavigate } from 'react-router-dom';
+import { FaShoppingCart } from "react-icons/fa";
 const Navbar = () => {
   const navigate = useNavigate()
   const [isLogin,setLogin]=useState(false)
@@ -78,8 +79,28 @@ const Navbar = () => {
          ) : (
            // Links specific to customer role
            <>
-             <Link className="nav-link" to="/products">Products</Link>
-             <Link className="nav-link" to="/cart">Cart</Link>
+             {/* <Link className="nav-link" to="/products">Products</Link>
+             <Link className="nav-link" to="/cart">Cart</Link> */}
+                        <div className="forseller">
+          <div className='inputfieldDivuser'> <input className='inputForuser' type='text' placeholder='Search'></input> <FaSearch className='input_serach'/></div>
+          <div className="forProfile" onClick={toggleDropDown}>
+            <FaUserTie/>
+            <span>{name}</span>
+          </div>
+          <div className="pagelinkforUser">
+            <div><p>Home</p></div>
+            <div><p>Categories</p></div>
+           <div> <p>Services</p></div>
+            <div><p>Contact Us</p></div>
+           <div> <p>About us</p></div>
+           <div><Link to='/cart'> <FaShoppingCart className='cart'/></Link></div>
+          </div>
+          {isOpen && (<div className='menu_dropdown'>
+            <Link className="nav-link" to="/users"><FaHome/>Home</Link>
+            <Link className="nav-link" to="/cart"><FaShoppingCart/>Cart</Link>
+             <span className="nav-link"  onClick={handleLogout}><BiLogOut/>Logout</span>
+          </div>)}
+          </div>
            </>
         )}
        </div>

@@ -17,11 +17,7 @@ const SellerBar = () => {
     navigate('/')
   }
   // const [select ,setSelect]=useState('');
-  // // useEffect (()=>{
-  // //   const onSelect =()=>{
 
-  // //   }
-  // // },[])
   // const onSelect =(itemName) =>{
   //   setSelect(itemName)
   //   console.log(itemName)
