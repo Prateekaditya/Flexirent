@@ -43,6 +43,8 @@
 }
 .deleteicon{
     color: red;
+    font-size: 1.5rem;
+
 }
 .deleteicon:hover{
     color: rgb(115, 1, 1);
@@ -50,12 +52,14 @@
 }
 .editicons{
     color: rgb(38, 200, 38);
+    font-size: 1.5rem;
 }
 .editicons:hover{
     color: green;
     transition: 200ms ;
 }
 .mainBox{
+    transition: filter 0.3s ease-in-out;
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
@@ -87,4 +91,187 @@
    gap: 5px;
     top: 15px;
 
+}
+.icons button{
+    background-color: transparent;
+    border: none;
+    padding: 9px;
+}
+.mainEditBody{
+    /* background-color: red; */
+    max-height: 600px;
+    max-width: 600px;
+    position: absolute;
+    /* bottom: 100px; */
+    align-items: center;
+    bottom: 200px;
+    z-index: 5;
+    right: 900px;
+}
+.mainBox.blurred {
+    filter: blur(10px);
+    z-index: 1;
+  }
+.bodytoalign{
+    background: rgba( 236, 223, 204, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    height: 500px;
+    width: 500px;
+    position: relative;
+    left: 500px;
+}
+.formofEdit{
+    display: flex;
+    flex-direction: column;
+    margin-top: 70px;
+    margin-left: 20px;
+}
+
+.mainEditBody{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.formofEdit div {
+    display: flex;
+    /* align-items: center;
+    justify-content: center; */
+    gap: 10px;
+}
+.formofEdit{
+    gap: 5px;
+}
+.formofEdit div label{
+    display: flex;
+    gap: 20px;
+
+}
+.formofEdit div label span{
+    font-size: 1.1rem;
+    font-weight: 600;
+    
+}
+.formofEdit div label input{
+    width: 200px;
+    height: 25px;
+    border: 1px solid #1E201E;
+    /* border: none; */
+    padding: 5px;
+    border-radius: 10px;
+}
+.formofEdit div label textarea{
+    /* width: 200px;
+    height: 60px; */
+    border: 1px solid #1E201E;
+    /* border: none; */
+    padding: 5px;
+    border-radius: 10px;
+}
+.editBoxTitle{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    left: 500px;
+    top: 59px;
+    background-color: #1E201E;
+    border-radius: 10px 10px 0 0;
+    color: #ECDFCC;
+    width: 500px;
+    padding: 10px;
+    z-index: 9;
+}
+.editBoxTitle button{
+    background-color:transparent;
+    border: none;
+    font-size: 1.5rem;
+    color: #ECDFCC;
+}
+.formofEdit button{
+    background-color: #1E201E;
+    color: #ECDFCC;
+    border: none;
+    width: 150px;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 25px;
+    margin-left: 140px;
+}
+/* Existing styles remain the same */
+
+/* Blurred effect for main content when modal is open */
+.mainBox.blurred {
+    filter: blur(5px);
+    pointer-events: none;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+/* Delete Confirmation Modal Styles */
+.delete-confirm-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.delete-confirm-modal {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+}
+
+.delete-confirm-modal h2 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.delete-confirm-modal p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.delete-confirm-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.delete-confirm-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.delete-confirm-yes {
+    background-color: #ff4d4d;
+    color: white;
+}
+
+.delete-confirm-yes:hover {
+    background-color: #ff3333;
+}
+
+.delete-confirm-no {
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+.delete-confirm-no:hover {
+    background-color: #d0d0d0;
 }

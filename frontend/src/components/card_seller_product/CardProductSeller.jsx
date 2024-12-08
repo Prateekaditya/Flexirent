@@ -1,35 +1,135 @@
-import React from 'react'
+import React, { useState } from 'react';
+import axios from 'axios';
 import { MdOutlineModeEdit } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
-import "./cardproductseller.css"
+import "./cardproductseller.css";
+import AddEditNoteProduct from './AddEditNoteProduct';
 
-const CardProductSeller = ({product}) => {
-  if (!product || product.length === 0) {
-    return <div className='boxOfproduct1'>No products found</div>;
-  }
+const CardProductSeller = ({ product, onUpdateProduct, onDeleteProduct }) => {
+    const [showAddEdit, setShowAddEditProduct] = useState(false);
+    const [editingProduct, setEditingProduct] = useState(null);
+    const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+    const [productToDelete, setProductToDelete] = useState(null);
 
-  return (
-    <div className='mainBox'>
-      {product.map((item) => ( // Changed 'product' to 'item' to avoid naming confusion
-        <div key={item._id} className="boxOfproduct">
-            <div className="imgProduct">
-                <img className='imgProductSeller' src={`http://localhost:5555/uploads/${item.images}`} alt="person" />
-                {console.log("Image URL:", `http://localhost:5555/uploads/${item.image}`)}
-            </div>
-            <p className='productName'>Name: {item.name}</p>
-            <div className="details">
-              <p>price: ₹{item.price}</p>
-              <p>stock: {item.stock}</p>
-            </div>
+    const openAddEditModal = (note = null) => {
+        setEditingProduct(note);
+        setShowAddEditProduct(true);
+    };
+
+    const closeAddEditModal = () => {
+        setShowAddEditProduct(false);
+        setEditingProduct(null);
+    };
+
+    const handleSaveProduct = async (updatedProduct) => {
+        try {
+            if (onUpdateProduct) {
+                onUpdateProduct(updatedProduct);
+            }
+            closeAddEditModal();
+        } catch (error) {
+            console.error('Error updating product:', error);
+        }
+    };
+
+    const confirmDeleteProduct = (productId) => {
+        setProductToDelete(productId);
+        setShowDeleteConfirm(true);
+    };
+
+    const handleDeleteProduct = async () => {
+        try {
+            const authToken = localStorage.getItem('token');
+            await axios.delete(`http://localhost:5555/products/${productToDelete}`, {
+                headers: {
+                    'Authorization': `Bearer ${authToken}`,
+                    'Content-Type': 'application/json'
+                }
+            });
            
-            <div className="icons">
-                <MdOutlineModeEdit className='editicons'/>
-                <MdDelete className='deleteicon'/>
-            </div>
-        </div>
-      ))}
-    </div>
-  )
-}
+            if (onDeleteProduct) {
+                onDeleteProduct(productToDelete);
+            }
+            setShowDeleteConfirm(false);
+            setProductToDelete(null);
+        } catch (error) {
+            console.error('Error deleting product:', error);
+            alert('Failed to delete product. Please try again.');
+            setShowDeleteConfirm(false);
+        }
+    };
 
-export default CardProductSeller
+    const cancelDelete = () => {
+        setShowDeleteConfirm(false);
+        setProductToDelete(null);
+    };
+
+    if (!product || product.length === 0) {
+        return <div className='boxOfproduct1'>No products found</div>;
+    }
+
+    return (
+        <div>
+            <div className={`mainBox ${showAddEdit || showDeleteConfirm ? 'blurred' : ''}`}>
+                {product.map((item) => (
+                    <div key={item._id} className="boxOfproduct">
+                        <div className="imgProduct">
+                            <img
+                                className='imgProductSeller'
+                                src={`http://localhost:5555/uploads/${item.images}`}
+                                alt={item.name}
+                            />
+                        </div>
+                        <p className='productName'>Name: {item.name.slice(0, 40)}.....</p>
+                        <div className="details">
+                            <p>price: ₹{item.price}</p>
+                            <p>stock: {item.stock}</p>
+                        </div>
+                         
+                        <div className="icons">
+                            <button onClick={() => openAddEditModal(item)}>
+                                <MdOutlineModeEdit className='editicons'/>
+                            </button>
+                            <button onClick={() => confirmDeleteProduct(item._id)}>
+                                <MdDelete className='deleteicon'/>
+                            </button>
+                        </div>
+                    </div>
+                ))}
+            </div>
+         
+            {showAddEdit && (
+                <AddEditNoteProduct
+                    note={editingProduct}
+                    onClose={closeAddEditModal}
+                    onSave={handleSaveProduct}
+                />
+            )}
+
+            {showDeleteConfirm && (
+                <div className="delete-confirm-overlay">
+                    <div className="delete-confirm-modal">
+                        <h2>Confirm Delete</h2>
+                        <p>Are you sure you want to delete this product?</p>
+                        <div className="delete-confirm-buttons">
+                            <button 
+                                className="delete-confirm-yes" 
+                                onClick={handleDeleteProduct}
+                            >
+                                Yes
+                            </button>
+                            <button 
+                                className="delete-confirm-no" 
+                                onClick={cancelDelete}
+                            >
+                                No
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
+        </div>
+    );
+};
+
+export default CardProductSeller;

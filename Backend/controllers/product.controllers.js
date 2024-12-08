@@ -162,7 +162,7 @@ const editProduct = async(req,res) =>{
                 message:"You are not allowed to edit this product "
             })
         }
-        const updateImage = req.file? req.file.filename : product.images;
+        // const updateImage = req.file? req.file.filename : product.images;
         const updatedProduct = await productModel.findByIdAndUpdate(
             id,
             {
@@ -171,8 +171,7 @@ const editProduct = async(req,res) =>{
               category,
               price,
               duration,
-              stock,
-              images: updateImage
+              stock
             },
             {
               new: true,
