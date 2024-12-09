@@ -49,6 +49,7 @@ const createProduct = async (req, res) => {
   const getProducts = async(req,res) =>{
     try{
         const user = req.body;
+        
         if (!user) {
             return res.status(400).send({ error: 'unable to find required details' })
         }
@@ -67,12 +68,51 @@ const createProduct = async (req, res) => {
             data:products
         })
     }
+    
     catch(e){
         return res.status(500).json({
             error:`${e.message}`
         })
     }
 }
+const getLatestProducts = async (req, res) => {
+    try {
+        // Parse the limit from query params, default to 5
+        const limit = parseInt(req.query.limit) || 5;
+
+        // Fetch latest products
+        const products = await productModel
+            .find()
+            .sort({ createdAt: -1 }) // Sort by most recent
+            .limit(limit)
+            .populate('creator', 'name email') // Populate creator fields
+            .populate('reviews.user', 'name email'); // Populate review user fields
+
+        // Check if products are found
+        if (!products || products.length === 0) {
+            return res.status(404).json({
+                message: "No products found",
+                success: false
+            });
+        }
+
+        // Send successful response
+        return res.status(200).json({
+            success: true,
+            message: "Latest products retrieved",
+            count: products.length,
+            data: products
+        });
+    } catch (error) {
+        console.error('Error fetching latest products:', error.message);
+        return res.status(500).json({
+            success: false,
+            message: "Internal server error",
+            error: error.message
+        });
+    }
+};
+
 const getSellerProduct = async (req,res) =>{
     try{
         const products = await productModel.find({creator:req.user._id}).populate('reviews.user' ,'name email')
@@ -261,5 +301,6 @@ module.exports ={
     addReview,
     editProduct,
     deleteProduct,
-    singleProduct
+    singleProduct,
+    getLatestProducts
 }

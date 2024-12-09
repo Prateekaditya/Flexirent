@@ -50,10 +50,11 @@ const Landing = () => {
                                 <span> Seller Dashboard</span>
                                 {/* <p><center>List your products and reach thousands of potential customers through our expansive marketplace</center></p> */}
                             </div></Link>):role==='customer'?(
+                                <Link className='sellerlink' to='/users'>
                             <div className="customer">
                                 <FaUser className='rolesicon'/>
                                 <span>Customer Dashboard</span>
-                            </div>):(<div>
+                            </div></Link>):(<div>
                                 You Have No role
                             </div>)}
                         </div>

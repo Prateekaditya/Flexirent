@@ -9,6 +9,7 @@ import GetProducts from "./pages/sellerPages/GetProducts"
 import Create from "./pages/sellerPages/Create"
 import Order from "./pages/sellerPages/Order"
 import Review from "./pages/sellerPages/Review"
+import ProductDetails from "./pages/productDetails/ProductDetails"
 const App = () => {
   return (
     <div>
@@ -23,6 +24,7 @@ const App = () => {
         <Route path='/products' element={<GetProducts/>}/>
         <Route path='/order' element={<Order/>}/>
         <Route path='/review' element={<Review/>}/>
+        <Route path='/product/:id' element={<ProductDetails />} />
       </Routes>
     </Router>
     </div>

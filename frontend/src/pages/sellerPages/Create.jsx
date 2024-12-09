@@ -16,7 +16,8 @@ const Create = () => {
   const [error,setError]=useState('')
   const handleSubmit =async(e)=>{
     e.preventDefault();
-    const durationFull =  `duration durationUnit`
+    const durationFull = `${duration} ${durationUnit}`;
+    console.log(durationFull)
     if(!name){
       setError('Please Provide a name')
       return;

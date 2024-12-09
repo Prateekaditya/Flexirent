@@ -1,0 +1,112 @@
+.bodyOfProductDetails{
+    margin-top: 100px;
+    margin-bottom: 30px;
+    display: flex;
+    padding: 10px;
+}
+.product-details-container {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    /* background-color: #f9f9f9; */
+    margin-top: 100px;
+  }
+  
+  .product-details-content {
+    display: flex;
+    gap: 20px;
+    max-width: 1200px;
+    /* background: #fff; */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .product-details-image {
+    max-width: 500px;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .product-details-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .product-details-info h1 {
+    margin: 0;
+    font-size: 2rem;
+    color: #333;
+  }
+  
+  .product-details-price {
+    font-size: 1.5rem;
+    color: rgb(133, 34, 34);
+    margin: 0;
+  }
+  
+  .product-details-description {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .product-details-creator {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .product-details-reviews-title {
+    font-size: 1.2rem;
+    margin: 10px 0;
+  }
+  
+  .product-details-reviews {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .product-review {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .product-review strong {
+    font-weight: bold;
+  }
+  
+  .product-details-loading,
+  .product-details-error {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #333;
+    padding: 20px;
+  }
+  .product-details-description {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.5;
+    margin: 10px 0;
+  }
+  
+  .read-more-button {
+    background-color: transparent;
+    border: none;
+    color: red;
+    cursor: pointer;
+    font-size: 1rem;
+    text-decoration: underline;
+    padding: 0;
+    margin-left: 5px;
+  }
+  
+  .read-more-button:hover {
+    color: red;
+  }
+  
+  

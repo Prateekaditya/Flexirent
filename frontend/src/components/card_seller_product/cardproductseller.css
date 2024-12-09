@@ -11,7 +11,7 @@
 .boxOfproduct{
     display: flex;
     flex-direction: column  ;
-    background-color: #ECDFCC;
+    background-color: #ffffff;
     /* z-index: 1; */
     position: relative;
     padding: 25px;

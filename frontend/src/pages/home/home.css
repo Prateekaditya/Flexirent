@@ -37,3 +37,38 @@
     border: none;
     background-color: #73746e;
 }
+.buttonfalse{
+    cursor: pointer;
+}
+.buttonfalse:hover{
+    background-color: #252524;
+    color: #ECDFCC;
+    transition: 300ms;
+}
+.backtotop{
+    padding: 10px;
+    background-color: #343434;
+    color:#ECDFCC ;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+
+}
+.backtotop a{
+    width: 100%;
+    text-decoration: none;
+    padding: 10px;
+    background-color: #343434;
+    color:#ECDFCC ;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+}
+.backtotop a:hover{
+    transition: 300ms;
+    background-color: #252524;
+}
+.backtotop:hover{
+    transition: 300ms;
+    background-color: #252524;
+}
