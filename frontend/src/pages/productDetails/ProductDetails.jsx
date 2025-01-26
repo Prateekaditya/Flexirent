@@ -4,13 +4,14 @@ import axios from "axios";
 import Navbar from "../../components/navbar/Navbar";
 import Footer from "../../components/footer/Footer";
 import "./productDetails.css";
+import AddCart from "../../components/for_cart/AddCart";
 
 const ProductDetails = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [isExpanded, setIsExpanded] = useState(false); // State for "Read More"
+  const [isExpanded, setIsExpanded] = useState(false);
 
   useEffect(() => {
     const fetchProductDetails = async () => {
@@ -21,7 +22,7 @@ const ProductDetails = () => {
             Authorization: `Bearer ${authToken}`,
           },
         });
-        console.log(response.data.data)
+        console.log(response.data.data);
         setProduct(response.data.data);
         setLoading(false);
       } catch (err) {
@@ -83,7 +84,7 @@ const ProductDetails = () => {
             </div>
             <p className="product-details-creator">Owner: {product.creator.name}</p>
             <p className="product-details-creator">Duration: {product.duration}</p>
-            <button>Add to cart</button>
+            <AddCart productId={product._id} />
             <button>Buy</button>
             <p className="product-details-reviews-title">Reviews:</p>
             <ul className="product-details-reviews">

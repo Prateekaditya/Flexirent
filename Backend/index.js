@@ -4,6 +4,7 @@ const connectDB = require('./DB/connectDb');
 const cors= require('cors')
 const userRoute = require('./routes/user.route')
 const productRoute = require('./routes/product.route')
+const cartRoute = require('./routes/cart.route')
 const app  =express();
 app.use(express.urlencoded({extended:true}))
 app.use(express.json());
@@ -26,6 +27,7 @@ app.use(
 )
 app.use('/users',userRoute)
 app.use('/products',productRoute)
+app.use('/cart',cartRoute)
 app.listen(PORT,()=>{
     console.log(`Server has started at ${PORT} PORT`);
 })

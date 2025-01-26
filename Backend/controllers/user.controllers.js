@@ -78,50 +78,52 @@ const register = async (req, res) => {
 
 const login = async (req, res) => {
     try {
-        const { email, pass, role } = req.body;
-        
-        if (!email || !pass || !role) {
-            return res.status(400).json({
-                success: false,
-                message: "All fields are required"
-            });
-        }
-
-        const user = await userModel.findOne({ email, role });
-        if (!user) {
-            return res.status(401).json({
-                success: false,
-                message: "Invalid credentials"
-            });
-        }
-
-        const isMatch = await bcrypt.compare(pass, user.password);
-        if (!isMatch) {
-            return res.status(401).json({
-                success: false,
-                message: "Invalid credentials"
-            });
-        }
-
-        const token = createJwt(user.email);
-
-        return res.status(200).json({
-            success: true,
-            message: "Login successful",
-            token,
-            user: {
-                name: user.name,
-                email: user.email,
-                role: user.role
-            }
+      const { email, pass, role } = req.body;
+  
+      if (!email || !pass || !role) {
+        return res.status(400).json({
+          success: false,
+          message: "All fields are required"
         });
+      }
+  
+      const user = await userModel.findOne({ email, role });
+      if (!user) {
+        return res.status(401).json({
+          success: false,
+          message: "Invalid credentials"
+        });
+      }
+  
+      const isMatch = await bcrypt.compare(pass, user.password);
+      if (!isMatch) {
+        return res.status(401).json({
+          success: false,
+          message: "Invalid credentials"
+        });
+      }
+  
+      const token = createJwt(user.email);
+  
+      return res.status(200).json({
+        success: true,
+        message: "Login successful",
+        token,
+        user: {
+          _id: user._id,           // Include user ID
+          name: user.name,
+          email: user.email,
+          role: user.role
+        }
+      });
     } catch (e) {
-        return res.status(500).json({
-            success: false,
-            error: e.message
-        });
+      return res.status(500).json({
+        success: false,
+        error: e.message
+      });
     }
-};
+  };
+  
 
 const addAddandPhone = async (req, res) => {
     try {

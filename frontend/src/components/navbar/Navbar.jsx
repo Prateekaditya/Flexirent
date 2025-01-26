@@ -17,7 +17,6 @@ const Navbar = () => {
     const userString = localStorage.getItem('user')
     const token = localStorage.getItem('token')
 
-
     try{
      const user =userString ? JSON.parse(userString) : null
      if(user && token){

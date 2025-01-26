@@ -10,6 +10,7 @@ import Create from "./pages/sellerPages/Create"
 import Order from "./pages/sellerPages/Order"
 import Review from "./pages/sellerPages/Review"
 import ProductDetails from "./pages/productDetails/ProductDetails"
+import Cart from "./pages/cart/Cart"
 const App = () => {
   return (
     <div>
@@ -25,6 +26,7 @@ const App = () => {
         <Route path='/order' element={<Order/>}/>
         <Route path='/review' element={<Review/>}/>
         <Route path='/product/:id' element={<ProductDetails />} />
+        <Route path='/cart' element={<Cart />} />
       </Routes>
     </Router>
     </div>
