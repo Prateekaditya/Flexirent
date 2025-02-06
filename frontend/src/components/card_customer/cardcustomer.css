@@ -1,0 +1,58 @@
+.mainBodyCard{
+    position: relative;
+    top: 95px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding: 18px;
+    margin-left: 90px;
+}
+.boxofItems{
+    background-color: rgb(254, 254, 254);
+    border-radius: 20px 20px 20px 20px;
+    height: 250px;
+    width: 290px;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items:center;
+}
+.boxofItems:hover{
+    background-color: rgba(153, 151, 151, 0.604);
+    color: white;
+    scale: 1.15;
+    transition: 200ms;
+    /* transition: 3s ease-in; */
+}
+.imgsizebox{
+    height: 170px;
+    width: 200px;
+}
+/* .boxofaddingcart{
+    padding: 10px;
+    width: 150px;
+    background-color: red;
+} */
+
+.boxfornameaddcart{
+    display: flex;
+    gap: 50px;
+}
+.namecontentprice{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+
+}
+.linkofthebox{
+    text-decoration: none;
+    color: black;
+}
+.linkofthebox:hover{
+    color: white;
+    transition: 200ms;
+}

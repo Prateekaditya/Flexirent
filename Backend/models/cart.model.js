@@ -16,7 +16,7 @@ const cartSchema = new mongoose.Schema({
       vendorId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User', // Changed to 'User' to match actual vendor references
-        required: false // Set to false if vendorId might be null or undefined
+        required: true // Set to false if vendorId might be null or undefined
       },
       quantity: {
         type: Number,

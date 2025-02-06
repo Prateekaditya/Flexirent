@@ -11,6 +11,8 @@ import Order from "./pages/sellerPages/Order"
 import Review from "./pages/sellerPages/Review"
 import ProductDetails from "./pages/productDetails/ProductDetails"
 import Cart from "./pages/cart/Cart"
+import Profile from "./pages/profile/Profile"
+import OrderConfirm from "./components/orderConfirm/OrderConfirm"
 const App = () => {
   return (
     <div>
@@ -27,6 +29,8 @@ const App = () => {
         <Route path='/review' element={<Review/>}/>
         <Route path='/product/:id' element={<ProductDetails />} />
         <Route path='/cart' element={<Cart />} />
+        <Route path='/profile' element={<Profile/>}/>
+        <Route path='/orderconfirm/:orderId' element={<OrderConfirm/>}/>
       </Routes>
     </Router>
     </div>

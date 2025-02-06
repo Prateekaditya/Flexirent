@@ -44,7 +44,8 @@ const userSchema = new mongoose.Schema({
         addressType:{
             type:String
         }
-    }],
+    }
+],
     cart:{
         type:Array,
         default:[]

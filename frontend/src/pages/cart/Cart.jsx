@@ -3,7 +3,7 @@ import { getCart, updateCart, removeFromCart } from '../../assets/helper.jsx';
 import './Cart.css';
 import Navbar from '../../components/navbar/Navbar.jsx';
 import DeleteCart from '../../components/deletecartbutton/DeleteCart.jsx';
-
+import Checkout from '../../components/checkout/Checkout.jsx';
 const Cart = () => {
     const [cart, setCart] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -56,13 +56,15 @@ const Cart = () => {
         }
     };
 
-    if(loading) return <div className="cart-loading">Loading cart...</div>;
+    if(loading) return ;
     if(error) return <div className="cart-error">{error}</div>;
 
     return (
         <>
         <Navbar/>
-        <div className="cart-container">
+        {loading ? (
+            <div className="cart-loading">Loading cart...</div>
+        ) :(<div className="cart-container">
             <h1 className='titleforcart'>Your Cart</h1>
 
             <div className="divforheading">
@@ -117,9 +119,9 @@ const Cart = () => {
                             </p>
                             
                             <DeleteCart 
-    productId={item.productId._id} 
-    onDelete={handleUpdateQuantity}
-/>
+        productId={item.productId._id} 
+        onDelete={handleUpdateQuantity} 
+        />
 
                         </div>
                         
@@ -150,7 +152,9 @@ const Cart = () => {
                                 .toFixed(2)}</p>
                         </div>
                     </div>
-                    <button className='decorationforcheckoutbutton'>Checkout</button>
+                    {/* <button className='decorationforcheckoutbutton'>Checkout</button> */}
+                    <Checkout className='decorationforcheckoutbutton' userId={cart.userId}  />
+
                     </div>
                 </div>
                 
@@ -160,7 +164,8 @@ const Cart = () => {
                     <p>Your cart is empty</p>
                 </div>
             )}
-        </div></>
+        </div>)}
+        </>
     );
 };
 

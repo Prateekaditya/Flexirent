@@ -1,7 +1,8 @@
 import React from 'react';
 import { addToCart } from '../../assets/helper.jsx';
-
-const AddCart = ({ productId, vendorId }) => {  // ✅ Pass vendorId from props
+import { BsCartPlus } from "react-icons/bs";
+import "./cartadd.css"
+const Addtocartproduct = ({ productId, vendorId }) => {  // ✅ Pass vendorId from props
   const handleAddToCart = async () => {
     try {
       const userString = localStorage.getItem('user');
@@ -33,11 +34,12 @@ const AddCart = ({ productId, vendorId }) => {  // ✅ Pass vendorId from props
   };
 
   return (
-    <button onClick={handleAddToCart} className="add-to-cart-button">
-      Add to Cart
-    </button>
+    // <button onClick={handleAddToCart} className="add-to-cart-button">
+    //   Add to Cart
+    // </button>
+    <BsCartPlus onClick={handleAddToCart} className="add-to-cart"/>
   );
 };
 
-export default AddCart;
+export default Addtocartproduct;
 

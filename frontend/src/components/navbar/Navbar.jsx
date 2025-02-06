@@ -6,6 +6,7 @@ import { FaUserTie } from "react-icons/fa";
 import { BiLogOut } from "react-icons/bi";
 import { Link, useNavigate } from 'react-router-dom';
 import { FaShoppingCart } from "react-icons/fa";
+import { CgProfile } from "react-icons/cg";
 const Navbar = () => {
   const navigate = useNavigate()
   const [isLogin,setLogin]=useState(false)
@@ -87,7 +88,7 @@ const Navbar = () => {
             <span>{name}</span>
           </div>
           <div className="pagelinkforUser">
-            <div><p>Home</p></div>
+            <Link className='pagelinkforUserLink' to='/users'>Home</Link>
             <div><p>Categories</p></div>
            <div> <p>Services</p></div>
             <div><p>Contact Us</p></div>
@@ -96,6 +97,7 @@ const Navbar = () => {
           </div>
           {isOpen && (<div className='menu_dropdown'>
             <Link className="nav-link" to="/users"><FaHome/>Home</Link>
+            <Link className="nav-link" to="/profile"><CgProfile/>Profile</Link>
             <Link className="nav-link" to="/cart"><FaShoppingCart/>Cart</Link>
              <span className="nav-link"  onClick={handleLogout}><BiLogOut/>Logout</span>
           </div>)}
@@ -114,47 +116,3 @@ const Navbar = () => {
 }
 
 export default Navbar
-// import React, { useState } from 'react';
-// import './navbar.css';
-// import { FaLaptopHouse } from 'react-icons/fa';
-// import { Link } from 'react-router-dom';
-
-// const Navbar = () => {
-//   // State to manage if user is logged in
-//   const [isLogin, setLogin] = useState(true);
-
-//   // State to manage user role ("seller" or "customer")
-//   const [userRole, setUserRole] = useState('customer'); // Change this to 'seller' or 'customer' as needed
-
-//   return (
-//     <div className="navbarbox">
-//       <h1>
-//         FlexiRent <FaLaptopHouse className="iconOflaptop" />
-//       </h1>
-//       <div className="nav-links">
-//         {userRole === 'seller' ? (
-//           // Links specific to seller role
-//           <>
-//             <Link className="nav-link" to="/seller-dashboard">Dashboard</Link>
-//             <Link className="nav-link" to="/add-product">Add Product</Link>
-//           </>
-//         ) : (
-//           // Links specific to customer role
-//           <>
-//             <Link className="nav-link" to="/products">Products</Link>
-//             <Link className="nav-link" to="/cart">Cart</Link>
-//           </>
-//         )}
-//       </div>
-//       <div className="login_register">
-//         {isLogin ? (
-//           <Link className="login_register_link" to="/logout">Logout</Link>
-//         ) : (
-//           <Link className="login_register_link" to="/login">Login/Register</Link>
-//         )}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Navbar;

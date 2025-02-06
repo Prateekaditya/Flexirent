@@ -19,14 +19,15 @@ export const addToCart = async (userId, productId, vendorId, quantity) => {
     try {
         const response = await axios.post(
             `${API_URL}/add`,
-            {userId, productId, vendorId, quantity},
+            { userId, productId, vendorId, quantity }, // ✅ Ensure vendorId is included
             getAuthConfig()
         );
         return response;
-    } catch(error) {
+    } catch (error) {
         throw error;
     }
 };
+
 
 export const getCart = async (userId) => {
     try {

@@ -8,6 +8,7 @@
 }
 body{
   background-color: #ecdfcc;
+  user-select: none;
 }
 
 /* Optionally, hide scrollbars specifically for WebKit browsers */
@@ -19,3 +20,4 @@ html::-webkit-scrollbar, body::-webkit-scrollbar {
 html::-webkit-scrollbar, body::-webkit-scrollbar {
   display: none;
 }
+

@@ -83,7 +83,7 @@
     right: 59px;
     top: 60px;
     transition: 200ms;
-    height: 100px;
+    height: 150px;
     border-radius: 10px;
     border: none;
     display: flex;
@@ -164,4 +164,8 @@
     position: relative;
     top: -8px;
     left: 70px;
+}
+.pagelinkforUserLink{
+    text-decoration: none;
+    color: white;
 }

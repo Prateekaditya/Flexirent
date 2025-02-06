@@ -84,7 +84,7 @@ const ProductDetails = () => {
             </div>
             <p className="product-details-creator">Owner: {product.creator.name}</p>
             <p className="product-details-creator">Duration: {product.duration}</p>
-            <AddCart productId={product._id} />
+            <AddCart productId={product._id} vendorId={product.creator._id} />
             <button>Buy</button>
             <p className="product-details-reviews-title">Reviews:</p>
             <ul className="product-details-reviews">
