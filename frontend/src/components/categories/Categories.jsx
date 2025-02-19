@@ -4,7 +4,7 @@ const Categories = () => {
   return (
     <>
     <div className="Bhulgaya">
-        <h1>Categories</h1>
+        <h1 className='categoriestitile'>Categories</h1>
     <div className="categoriesbody">
         <img className='imgForpointer' src="./pointing.png" alt="pointing"  />
         <div className="categoriesbox">

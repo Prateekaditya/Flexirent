@@ -21,7 +21,8 @@
     /* background: #fff; */
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   }
   
   .product-details-image {
@@ -108,5 +109,13 @@
   .read-more-button:hover {
     color: red;
   }
+  .product-details-image:hover{
+    scale: 1.05;
+    transition: 200ms;
+    /* transform: translateX(1.2px); */
+  }
   
-  
+  .coveraddtocartandbuy{
+    display: flex;
+    justify-content: space-between;
+  }

@@ -7,6 +7,7 @@
     padding: 20px;
     gap: 10px;
     font-size: 1.1rem;
+    width: 100%;
 
 }
 .footerBody p{
@@ -47,4 +48,11 @@ color: #0077b5;
 }
 .facebook:hover{
     color: #0c68ff;
+}
+@media (max-width:768px){
+.footerBody{
+    max-width: 100%;
+    min-width:auto;
+    width: 786px;
+}
 }

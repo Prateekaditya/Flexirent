@@ -52,7 +52,7 @@ const LatestProduct = ({ limit = 3 }) => {
 
     return (
         <div className="latest-products-container">
-            <h2>Latest Products</h2>
+            <h2 className='titleofheading'>Latest Products</h2>
             <div className="latest-products-grid">
                 {latestProducts.map((product) => (
                     <div key={product._id} className="latest-product-card">

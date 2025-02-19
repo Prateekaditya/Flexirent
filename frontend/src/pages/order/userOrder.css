@@ -1,0 +1,12 @@
+.boxFororder{
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-left: 20px;
+}
+.fstOrder{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}

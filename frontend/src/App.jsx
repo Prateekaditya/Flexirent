@@ -13,6 +13,7 @@ import ProductDetails from "./pages/productDetails/ProductDetails"
 import Cart from "./pages/cart/Cart"
 import Profile from "./pages/profile/Profile"
 import OrderConfirm from "./components/orderConfirm/OrderConfirm"
+import UserOrder from "./pages/order/UserOrder"
 const App = () => {
   return (
     <div>
@@ -31,6 +32,7 @@ const App = () => {
         <Route path='/cart' element={<Cart />} />
         <Route path='/profile' element={<Profile/>}/>
         <Route path='/orderconfirm/:orderId' element={<OrderConfirm/>}/>
+        <Route path='/userorder' element={<UserOrder/>}/>
       </Routes>
     </Router>
     </div>

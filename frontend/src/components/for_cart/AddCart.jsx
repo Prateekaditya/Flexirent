@@ -1,6 +1,6 @@
 import React from 'react';
 import { addToCart } from '../../assets/helper.jsx';
-
+import "./cartadd.css"
 const AddCart = ({ productId, vendorId }) => {  // ✅ Pass vendorId from props
   const handleAddToCart = async () => {
     try {
@@ -36,6 +36,7 @@ const AddCart = ({ productId, vendorId }) => {  // ✅ Pass vendorId from props
     <button onClick={handleAddToCart} className="add-to-cart-button">
       Add to Cart
     </button>
+    
   );
 };
 

@@ -72,3 +72,11 @@
     transition: 300ms;
     background-color: #252524;
 }
+
+@media (max-width:786px){
+    .paraHero{
+        /* margin-bottom: 20px; */
+        position: relative;
+        top: -20px;
+    }
+}

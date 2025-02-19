@@ -14,7 +14,7 @@
 .latest-products-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+    gap: 2.4rem;
     justify-content: center;
 }
 
@@ -24,7 +24,7 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: transform 0.3s ease;
-    padding: 5px;
+    padding: 10px;
 }
 
 .latest-product-card:hover {
@@ -78,6 +78,17 @@
 @media (max-width: 768px) {
     .latest-products-grid {
         grid-template-columns: 1fr;
+        width: 300px;
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+        position: relative;
+        left: 300px;
+    }
+    .titleofheading{
+        position: relative;
+        left: 335px;
+        text-decoration: underline;
     }
 }
 

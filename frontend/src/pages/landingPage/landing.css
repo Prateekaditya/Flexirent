@@ -87,8 +87,9 @@
     border-radius: 10px;
     padding: 10px;
     height: 120px;
-    width: 120px;
-    font-size: 1.3rem;
+    width: 200px;
+    padding: 10px;
+    font-size: 1.1rem;
 
 }
 .seller:hover{
@@ -101,7 +102,9 @@
     border: 3px dotted #1E201E;
     transition: 200ms;
 }
-.sellerLink{
+
+.sellerlink{
     text-decoration: none;
     color: #1E201E;
+    
 }

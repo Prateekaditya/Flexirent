@@ -57,7 +57,8 @@ const Navbar = () => {
   return (
     <div>
         <div className="navbarbox">
-            <h1>FlexiRent <FaLaptopHouse className='iconOflaptop'/> </h1> 
+          <Link to='/users' className='firstlinkofthewebsite'>
+            <h1>FlexiRent <FaLaptopHouse className='iconOflaptop'/> </h1></Link> 
 
            {isLogin && ( 
          <div className="nav-links">
