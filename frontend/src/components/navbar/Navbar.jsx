@@ -71,7 +71,7 @@ const Navbar = () => {
             <FaUserTie/>
             <span>{name}</span>
           </div>
-          {isOpen && (<div className='menu_dropdown'>
+          {isOpen && (<div className='menu_dropdown2'>
             <Link className="nav-link" to="/seller"><FaHome/>Home</Link>
              <span className="nav-link"  onClick={handleLogout}><BiLogOut/>Logout</span>
           </div>)}
@@ -91,7 +91,8 @@ const Navbar = () => {
           <div className="pagelinkforUser">
             <Link className='pagelinkforUserLink' to='/users'>Home</Link>
             <div><p>Categories</p></div>
-           <div> <p>Services</p></div>
+           {/* <div> <p>My Orders</p></div> */}
+           <Link className='pagelinkforUserLink' to='/userorder'>My Orders</Link>
             <div><p>Contact Us</p></div>
            <div> <p>About us</p></div>
            <div><Link to='/cart'> <FaShoppingCart className='cart'/></Link></div>

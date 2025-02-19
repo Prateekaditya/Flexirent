@@ -188,6 +188,26 @@ const getProfile = async(req,res) =>{
         })
     }
 }
+const getUserAddresses = async (req, res) => {
+    try {
+        const { userId } = req.params;
+
+        if (!userId) {
+            return res.status(400).json({ error: "User ID is required" });
+        }
+
+        const user = await userModel.findById(userId).select("address");
+
+        if (!user) {
+            return res.status(404).json({ error: "User not found" });
+        }
+
+        res.status(200).json({ address: user.address });
+    } catch (error) {
+        console.error("Error fetching user addresses:", error);
+        res.status(500).json({ error: "Internal Server Error" });
+    }
+};
 
 
 
@@ -195,5 +215,6 @@ module.exports = {
     register,
     login,
     addAddandPhone,
-    getProfile
+    getProfile,
+    getUserAddresses
 };

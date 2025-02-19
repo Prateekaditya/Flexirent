@@ -16,26 +16,27 @@ const Cart = () => {
     const fetchCart = async () => {
         try {
             const userString = localStorage.getItem('user');
-            if(!userString) {
+            if (!userString) {
                 setError('Please login to view cart');
+                setCart({ items: [] }); // Ensures cart is always an object
                 setLoading(false);
                 return;
             }
-
+    
             const user = JSON.parse(userString);
             const userId = user._id;
-
+    
             const response = await getCart(userId);
-            setCart(response.data);
+            setCart(response.data || { items: [] }); // Ensures `items` is always present
             setLoading(false);
-        } catch(error) {
+        } catch (error) {
             console.error('Error fetching cart:', error);
             setError('Error loading cart');
+            setCart({ items: [] }); // Prevent crashes by ensuring an empty cart object
             setLoading(false);
         }
-        // console.log(cart)
     };
-
+    
     const handleUpdateQuantity = async (productId, quantity) => {
         try {
             const userString = localStorage.getItem('user');
@@ -73,23 +74,21 @@ const Cart = () => {
                 <p className='quantityclassname'>Quantity</p>
                 <p className='totalclassname'>Total</p>
             </div>
-            {cart && cart.items && cart.items.length > 0 ? (
-                <>
-                <div className="cart-items">
-                    <div className='cart_eachItem'>
-                    {cart.items.map((item) => (
-                        <div>
-                            <hr className='hrline'/>
-                        <div key={item.productId._id} className="cart-item">
-                            
+            {cart?.items?.length > 0 ? (
+    <>
+        <div className="cart-items">
+            <div className='cart_eachItem'>
+                {cart.items.map((item) => (
+                    <div key={item.productId._id}>
+                        <hr className='hrline'/>
+                        <div className="cart-item">
                             <div className='divforcartimage'>
-                            <img
-                            src={`http://localhost:5555/uploads/${item.productId.images}`}
-                                                         alt={item.productId.name}
-                                className="cart-details-image"
-                                                            />
-                                                            </div>
-                            
+                                <img
+                                    src={`http://localhost:5555/uploads/${item.productId.images}`}
+                                    alt={item.productId.name}
+                                    className="cart-details-image"
+                                />
+                            </div>
                             <div className="item-details">
                                 <h4>{item.productId.name.slice(0,25)}</h4>
                                 <p className="durtaioncart">Creator: {item.productId.creator.name}</p>
@@ -98,7 +97,7 @@ const Cart = () => {
                             </div>
                             <div className='forpricecart'>
                                 <p>₹{item.productId.price}</p>
-                                </div>
+                            </div>
                             <div className="quantity-controls">
                                 <button 
                                     onClick={() => handleUpdateQuantity(item.productId._id, item.quantity - 1)}
@@ -117,53 +116,43 @@ const Cart = () => {
                             <p className="subtotal">
                                 ₹{(item.productId.price * item.quantity).toFixed(2)}
                             </p>
-                            
                             <DeleteCart 
-        productId={item.productId._id} 
-        onDelete={handleUpdateQuantity} 
-        />
-
-                        </div>
-                        
-                        </div>
-                        
-                    ))}
-                                            <hr className='hrline'/>
-
-                    </div>
-                    <div className='checkoutadded'>
-                    <div className="cart-total">
-                        <div className="divorder1">
-                        Order Summary</div>
-                        <div className="orderpart2">
-                            <div className="subtoatal231">
-                           <p> Subtotal: </p>
-                            <p>₹{cart.items
-                                .reduce((total, item) => total + (item.productId.price * item.quantity), 0)
-                                .toFixed(2)}</p>
-                    </div>
-                    <div className="subtoatal231">
-                        <p>Shipping:</p><p>₹50</p></div>
-                        </div>
-                        <div className="totaldivpart3">
-                            <p>Total:</p>
-                            <p>₹{cart.items
-                                .reduce((total, item) => total + (item.productId.price * item.quantity)+50, 0)
-                                .toFixed(2)}</p>
+                                productId={item.productId._id} 
+                                onDelete={handleUpdateQuantity} 
+                            />
                         </div>
                     </div>
-                    {/* <button className='decorationforcheckoutbutton'>Checkout</button> */}
-                    <Checkout className='decorationforcheckoutbutton' userId={cart.userId}  />
-
+                ))}
+                <hr className='hrline'/>
+            </div>
+            <div className='checkoutadded'>
+                <div className="cart-total">
+                    <div className="divorder1">Order Summary</div>
+                    <div className="orderpart2">
+                        <div className="subtoatal231">
+                            <p>Subtotal:</p>
+                            <p>₹{cart.items.reduce((total, item) => total + (item.productId.price * item.quantity), 0).toFixed(2)}</p>
+                        </div>
+                        <div className="subtoatal231">
+                            <p>Shipping:</p><p>₹50</p>
+                        </div>
+                    </div>
+                    <div className="totaldivpart3">
+                        <p>Total:</p>
+                        <p>₹{cart.items.reduce((total, item) => total + (item.productId.price * item.quantity) + 50, 0).toFixed(2)}</p>
                     </div>
                 </div>
-                
-                </>
-            ) : (
-                <div className="empty-cart">
-                    <p>Your cart is empty</p>
-                </div>
-            )}
+                <Checkout className='decorationforcheckoutbutton' userId={cart.userId} />
+            </div>
+        </div>
+    </>
+) : (
+    <div className="empty-cart">
+    <p>Your cart is empty</p>
+    <button onClick={() => window.location.href = "/users"}>Go to Shop</button>
+</div>
+)}
+
         </div>)}
         </>
     );

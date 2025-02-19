@@ -8,6 +8,9 @@ const Order = () => {
         <div className="container">
             <Navbar/>
             <SellerBar/>
+            <div className="boxfororderofseller">
+              hfsahf
+            </div>
         </div>
     </div>
   )

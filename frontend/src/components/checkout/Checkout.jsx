@@ -5,32 +5,57 @@ import "./checkout.css";
 const Checkout = ({ userId }) => {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
+    const [addresses, setAddresses] = useState([]);
+    const [selectedAddress, setSelectedAddress] = useState("");
 
-    const loadScript = (src) => {
-        return new Promise((resolve) => {
-            const script = document.createElement('script');
-            script.src = src;
-            script.onload = () => resolve(true);
-            script.onerror = () => resolve(false);
-            document.body.appendChild(script);
-        });
-    };
+    useEffect(() => {
+        let isMounted = true;  // ✅ Prevent state update on unmounted component
+
+        const fetchAddresses = async () => {
+            if (!userId) return; // ✅ Prevent API call if userId is undefined
+
+            try {
+                setIsLoading(true);
+                const token = localStorage.getItem('token');
+
+                const response = await axios.get(`http://localhost:5555/users/${userId}`, {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                });
+
+                console.log("API Response:", response.data.user); // Debug API response
+
+                if (isMounted) {
+                    setAddresses(response.data.user.address || []); // ✅ Corrected the assignment
+                }
+            } catch (e) {
+                console.error("Error fetching user details:", e.message);
+            } finally {
+                if (isMounted) setIsLoading(false); // ✅ Only set state if component is still mounted
+            }
+        };
+
+        fetchAddresses();
+
+        return () => {
+            isMounted = false; // ✅ Cleanup function to prevent state updates after unmount
+        };
+    }, [userId]);
 
     const handleCheckout = async () => {
+        if (!selectedAddress) {
+            setError("Please select an address");
+            return;
+        }
+
         try {
             setIsLoading(true);
             setError(null);
 
-            // Load Razorpay SDK
-            const res = await loadScript('https://checkout.razorpay.com/v1/checkout.js');
-            if (!res) {
-                throw new Error('Razorpay SDK failed to load');
-            }
-
-            // Create order
-            const { data } = await axios.post(
+            const res = await axios.post(
                 `http://localhost:5555/payment/create-order`,
-                { userId },
+                { userId, selectedAddress },
                 {
                     headers: {
                         'Authorization': `Bearer ${localStorage.getItem('token')}`,
@@ -39,20 +64,20 @@ const Checkout = ({ userId }) => {
                 }
             );
 
-            if (!data.orderId || !data.amount || !data.key) {
+            if (!res.data.orderId || !res.data.amount || !res.data.key) {
                 throw new Error('Invalid response from server');
             }
 
             const options = {
-                key: data.key,
-                amount: data.amount * 100, // Convert to paise
+                key: res.data.key,
+                amount: res.data.amount * 100,
                 currency: "INR",
                 name: "FlexiRent",
                 description: "Transaction",
-                order_id: data.orderId,
+                order_id: res.data.orderId,
                 handler: async function (response) {
                     try {
-                        const verifyRes = await axios.post(
+                        await axios.post(
                             'http://localhost:5555/payment/verify-payment',
                             {
                                 razorpay_order_id: response.razorpay_order_id,
@@ -66,22 +91,10 @@ const Checkout = ({ userId }) => {
                                 }
                             }
                         );
-
-                        if (verifyRes.data.orderId) {
-                            // Show success message
-                            alert("Payment Successful!");
-
-                            // Redirect to order confirmation page
-                            window.location.href = `/orderconfirm/${verifyRes.data.orderId}`;
-
-                            // Redirect to home page after 5 seconds
-                            setTimeout(() => {
-                                window.location.href = '/';
-                            }, 5000);
-                        }
+                        alert("Payment Successful!");
+                        window.location.href = `/orderconfirm/${res.data.orderId}`;
                     } catch (error) {
-                        console.error("Verification error:", error);
-                        setError(error.response?.data?.error || "Payment verification failed");
+                        setError("Payment verification failed");
                     }
                 },
                 prefill: {
@@ -89,44 +102,46 @@ const Checkout = ({ userId }) => {
                     email: localStorage.getItem('userEmail') || "",
                     contact: localStorage.getItem('userPhone') || ""
                 },
-                theme: {
-                    color: "#3399cc"
-                },
-                modal: {
-                    ondismiss: function() {
-                        setIsLoading(false);
-                    }
-                }
+                theme: { color: "#3399cc" },
+                modal: { ondismiss: () => setIsLoading(false) }
             };
 
             const paymentObject = new window.Razorpay(options);
-            paymentObject.on('payment.failed', function (response) {
-                setError(response.error.description);
-                setIsLoading(false);
-            });
             paymentObject.open();
         } catch (error) {
             console.error("Checkout error:", error);
-            setError(error.response?.data?.error || error.message || "Error initiating payment");
+            setError(error.message || "Error initiating payment");
         } finally {
             setIsLoading(false);
         }
     };
 
     return (
-        <div>
+        <div className='mainboxforcheck'>
+            <div className="divforthis">
+            <h3>Select Delivery Address:</h3>
+            <select className='editforaddress' onChange={(e) => setSelectedAddress(e.target.value)} value={selectedAddress}>
+                <option value="">Select Address</option>
+                {addresses.length > 0 ? (
+                    addresses.map(addr => (
+                        <option key={addr._id} value={addr._id}>
+                            {addr.address1}, {addr.address2}, {addr.city}, {addr.state}, {addr.pincode}
+                        </option>
+                    ))
+                ) : (
+                    <option disabled>No addresses available</option>
+                )}
+            </select></div>
+
             <button 
                 onClick={handleCheckout} 
                 className="checkout-btn"
-                disabled={isLoading}
+                disabled={isLoading || addresses.length === 0}
             >
                 {isLoading ? 'Processing...' : 'Checkout'}
             </button>
-            {error && (
-                <div className="error-message text-red-500 mt-2">
-                    {error}
-                </div>
-            )}
+
+            {error && <div className="error-message">{error}</div>}
         </div>
     );
 };

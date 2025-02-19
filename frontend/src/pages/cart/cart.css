@@ -19,6 +19,7 @@
     gap: 20px;
     position: relative;
     right: 115px;
+    top: -40px;
 }
 .cart-item{
     display: flex;
@@ -30,10 +31,12 @@
     display: flex;
     gap: 150px;
     position: relative;
-    left: -250px;
+    left: -480px;
+    top: -30px;
     justify-content: center;
-    margin-top: 40px;
+    margin-top: 20px;
     font-weight: 600;
+    font-size: 1.1rem;
 }
 .lineHEHE{
     background-color: black;
@@ -111,15 +114,15 @@
 }
 .productClassName{
     position: relative;
-    right: 70px;
+    /* right: -10px; */
 }
 .priceclassname{
     position: relative;
-    left: 105px;
+    left: 135px;
 }
 .quantityclassname{
     position: relative;
-    left: 40px;
+    left: 20px;
 }
 .cart-total{
     display: flex;
@@ -179,4 +182,8 @@
     font-size: 1.3rem;
     font-weight: 500;
     border: none;
+}
+.totalclassname{
+    position: relative;
+    left: -100px;
 }

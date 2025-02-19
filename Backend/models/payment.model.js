@@ -62,7 +62,12 @@ const paymentSchema = new mongoose.Schema({
             enum: ['pending','accepted', 'On the way', 'delivered','cancel  '],
             default: 'pending'
         }
-    }]
+    }],
+    selectedAddress: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User.address', // Reference to User's address array
+        required: true
+    }
 }, { timestamps: true });
 
 const Payment = mongoose.model('Payment', paymentSchema);

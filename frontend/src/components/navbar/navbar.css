@@ -191,3 +191,21 @@
     text-decoration: none;
     color: white;
 }
+.menu_dropdown2{
+    position: absolute;
+    right: 59px;
+    top: 60px;
+    transition: 200ms;
+    height: 100px;
+    border-radius: 10px;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 130px;
+    background-color: white;
+    padding: 15px;
+    justify-content: center;
+    /* align-items: center; */
+    font-size: 1.1rem;
+}

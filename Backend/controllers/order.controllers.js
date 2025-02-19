@@ -12,11 +12,6 @@ const getOrderUser = async(req,res)=>{
             path: 'vendorPayments.items.productId',
             select: 'name price images'
         });
-    
-        // .lean()
-        ;
-        console.log(orders);
-        // console.log(JSON.stringify(orders, null, 2))
         return res.status(200).json({
             success:true,
             orders
@@ -29,7 +24,23 @@ const getOrderUser = async(req,res)=>{
         })
     }
 }
+const getOrderSeller = async(req,res)=>{
+    try{
+        const vendorId= req.user.id;
+        const orders = await payment.find({ "vendorPayments.vendorId": vendorId })
+        .populate('userId', 'name email')
+        .populate('vendorPayments.items.productId', 'name price images');
+
+    res.status(200).json({ success: true, orders });
+    }
+    catch(e){
+        return res.status(500).json({
+            message:e.message
+        })
+    }
+}
 
 module.exports ={
-    getOrderUser
+    getOrderUser,
+    getOrderSeller
 }

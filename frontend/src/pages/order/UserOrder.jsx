@@ -34,15 +34,20 @@ const UserOrder = () => {
     return (
         <div className="mainBoxOrder">
             <Navbar />
+            <div className="divforheading">
+                <p>MY ORDERS</p>
+            </div>
             <div className="boxFororder">
-                {orderProduct.length > 0 ? (
-                    orderProduct.map((item, index) => (
+                {orderProduct.length > 0  ? (
+                    orderProduct
+                    .filter(order => order.status === "completed")
+                    .map((item, index) => (
                         <div className="fstOrder" key={index}>
                             <div className="imgdivfororder">
-                                <img src="./book.png" height='100px' width='100px' alt="book" />
+                                <img className='imgofordder' src={`http://localhost:5555/uploads/${item.vendorPayments[0].items[0].productId.images}`} height='100px' width='100px' alt="book" />
                             </div>
                             <div className="detailsForOrder">
-                                <p>Name:{item.vendorPayments[0]?.items[0]?.productId.name.slice(0,40)})</p>
+                                <p>Name:{item.vendorPayments[0]?.items[0]?.productId.name.slice(0,42)}...</p>
                                 <p>Seller: {item.vendorPayments[0]?.vendorId.name || "Unknown"}</p>
                                 <p>Price: {item.vendorPayments[0]?.items[0]?.productId.price || "0"} </p>  
                             </div>
