@@ -29,7 +29,7 @@ const getOrderSeller = async(req,res)=>{
         const vendorId= req.user.id;
         const orders = await payment.find({ "vendorPayments.vendorId": vendorId })
         .populate('userId', 'name email')
-        .populate('vendorPayments.items.productId', 'name price images');
+        .populate('vendorPayments.items.productId', 'name price images duration');
 
     res.status(200).json({ success: true, orders });
     }
