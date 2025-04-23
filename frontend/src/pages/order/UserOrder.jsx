@@ -4,6 +4,7 @@ import axios from 'axios';
 import "./userOrder.css";
 
 const UserOrder = () => {
+    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5555';
     const [orderProduct, setOrderedProduct] = useState([]);
 
     useEffect(() => {
@@ -18,7 +19,7 @@ const UserOrder = () => {
                 return;
             }
 
-            const response = await axios.get("http://localhost:5555/order/", {
+            const response = await axios.get(`${API_URL}/order/`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
@@ -44,7 +45,7 @@ const UserOrder = () => {
                     .map((item, index) => (
                         <div className="fstOrder" key={index}>
                             <div className="imgdivfororder">
-                                <img className='imgofordder' src={`http://localhost:5555/uploads/${item.vendorPayments[0].items[0].productId.images}`} height='100px' width='100px' alt="book" />
+                                <img className='imgofordder' src={`${API_URL}/uploads/${item.vendorPayments[0].items[0].productId.images}`} height='100px' width='100px' alt="book" />
                             </div>
                             <div className="detailsForOrder">
                                 <p>Name:{item.vendorPayments[0]?.items[0]?.productId.name.slice(0,42)}...</p>

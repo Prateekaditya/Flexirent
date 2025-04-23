@@ -17,6 +17,8 @@ const Register = () => {
     const [name,setName]=useState('')
     const [cpass,setCpass]=useState('')
     const [error,setError]=useState('')
+
+    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5555';
     const handleSubmit =async(event)=>{
         event.preventDefault();
         if(!role){
@@ -36,7 +38,8 @@ const Register = () => {
             return;
         }
         try{
-            await axios.post('http://localhost:5555/users/register',{
+
+            await axios.post(`${API_URL}/users/register`,{
                 name,
                 email,
                 pass:password,

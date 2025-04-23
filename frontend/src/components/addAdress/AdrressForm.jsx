@@ -172,7 +172,7 @@ const AdrressForm = () => {
         try{
             const token = localStorage.getItem('token');
             console.log(token)
-            const response = await axios.patch("http://localhost:5555/users/details",{
+            const response = await axios.patch(`${API_URL}/users/details`,{
                 country,
                 city,
                 state,

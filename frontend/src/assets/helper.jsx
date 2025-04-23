@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5555/cart';
-
+// const API_URL = 'http://localhost:5555/cart';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5555';
 const getAuthConfig = () => {
     const token = localStorage.getItem('token');
     if(!token) {
@@ -18,7 +18,7 @@ const getAuthConfig = () => {
 export const addToCart = async (userId, productId, vendorId, quantity) => {
     try {
         const response = await axios.post(
-            `${API_URL}/add`,
+            `${API_URL}/cart/add`,
             { userId, productId, vendorId, quantity }, // ✅ Ensure vendorId is included
             getAuthConfig()
         );
@@ -32,7 +32,7 @@ export const addToCart = async (userId, productId, vendorId, quantity) => {
 export const getCart = async (userId) => {
     try {
         const response = await axios.get(
-            `${API_URL}/${userId}`,
+            `${API_URL}/cart/${userId}`,
             getAuthConfig()
         );
         return response;
@@ -44,7 +44,7 @@ export const getCart = async (userId) => {
 export const updateCart = async (userId, productId, quantity) => {
     try {
         const response = await axios.put(
-            `${API_URL}/update`,
+            `${API_URL}/cart/update`,
             {userId, productId, quantity},
             getAuthConfig()
         );
@@ -57,7 +57,7 @@ export const updateCart = async (userId, productId, quantity) => {
 export const removeFromCart = async (userId, productId) => {
     try {
         const response = await axios.delete(
-            `${API_URL}/remove`,
+            `${API_URL}/cart/remove`,
             {
                 data: {userId, productId},
                 ...getAuthConfig()

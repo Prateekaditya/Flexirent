@@ -7,12 +7,13 @@ const OrderConfirm = () => {
     const navigate = useNavigate();
     const [orderDetails, setOrderDetails] = useState(null);
     const [error, setError] = useState(null);
+    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5555';
 
     useEffect(() => {
         const fetchOrderDetails = async () => {
             try {
                 const { data } = await axios.get(
-                    `http://localhost:5555/payment/${orderId}`,
+                    `${API_URL}/payment/${orderId}`,
                     {
                         headers: {
                             'Authorization': `Bearer ${localStorage.getItem('token')}`,

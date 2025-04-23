@@ -5,12 +5,12 @@ import "./address.css";
 const AddressDisplay = ({ userId }) => {
     const [userInfo, setUserInfo] = useState(null);
     const [loading, setLoading] = useState(true);
-
+    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5555';
     useEffect(() => {
         const fetchUserInfo = async () => {
             try {
                 const token = localStorage.getItem('token');
-                const response = await axios.get(`http://localhost:5555/users/${userId}`, {
+                const response = await axios.get(`${API_URL}/users/${userId}`, {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }

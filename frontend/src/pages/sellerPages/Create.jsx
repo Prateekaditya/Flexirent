@@ -14,6 +14,7 @@ const Create = () => {
   const [stock,setStock]=useState('')
   const [images,setImages]=useState();
   const [error,setError]=useState('')
+  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5555';
   const handleSubmit =async(e)=>{
     e.preventDefault();
     const durationFull = `${duration} ${durationUnit}`;
@@ -53,7 +54,7 @@ const Create = () => {
     
     try{
       const authToken = localStorage.getItem('token');
-      await axios.post('http://localhost:5555/products/create',
+      await axios.post(`${API_URL}/products/create`,
         formData,
       {
         headers:{

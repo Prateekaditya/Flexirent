@@ -9,13 +9,13 @@ const GetProducts = () => {
     const [products, setProducts] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
-
+    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5555';
     const fetchProducts = async () => {
         try {
             setIsLoading(true);
             const token = localStorage.getItem('token');
 
-            const response = await axios.get('http://localhost:5555/products/seller', {
+            const response = await axios.get(`${API_URL}/products/seller`, {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                     'Content-Type': 'application/json'

@@ -7,9 +7,10 @@ import Addtocartproduct from '../for_cart/Addtocartproduct';
 import { Link } from 'react-router-dom';
 const CardCustomer = () => {
   const [product,setProducts]=useState([]);
+  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5555';
   const getProduct = async()=>{
     try{
-      const response =  await axios.get(`http://localhost:5555/products/`,
+      const response =  await axios.get(`${API_URL}/products/`,
          {
       headers: {
       'Authorization': `Bearer ${localStorage.getItem('token')}`,
@@ -39,7 +40,7 @@ const CardCustomer = () => {
               <div key={item._id} className='boxofItems'  >
                 <Link to={`/product/${item._id}`} className='linkofthebox'> 
                   <div className="imagesbox">
-                    <img src={`http://localhost:5555/uploads/${item.images}`} 
+                    <img src={`${API_URL}/uploads/${item.images}`} 
                     alt={item.name} 
                     className='imgsizebox'
                     />

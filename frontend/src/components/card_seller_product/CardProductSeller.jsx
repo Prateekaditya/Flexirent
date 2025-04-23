@@ -10,7 +10,7 @@ const CardProductSeller = ({ product, onUpdateProduct, onDeleteProduct }) => {
     const [editingProduct, setEditingProduct] = useState(null);
     const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
     const [productToDelete, setProductToDelete] = useState(null);
-
+    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5555';
     const openAddEditModal = (note = null) => {
         setEditingProduct(note);
         setShowAddEditProduct(true);
@@ -40,7 +40,7 @@ const CardProductSeller = ({ product, onUpdateProduct, onDeleteProduct }) => {
     const handleDeleteProduct = async () => {
         try {
             const authToken = localStorage.getItem('token');
-            await axios.delete(`http://localhost:5555/products/${productToDelete}`, {
+            await axios.delete(`${API_URL}/products/${productToDelete}`, {
                 headers: {
                     'Authorization': `Bearer ${authToken}`,
                     'Content-Type': 'application/json'
@@ -76,7 +76,7 @@ const CardProductSeller = ({ product, onUpdateProduct, onDeleteProduct }) => {
                         <div className="imgProduct">
                             <img
                                 className='imgProductSeller'
-                                src={`http://localhost:5555/uploads/${item.images}`}
+                                src={`${API_URL}/uploads/${item.images}`}
                                 alt={item.name}
                             />
                         </div>

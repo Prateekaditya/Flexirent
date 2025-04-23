@@ -10,7 +10,7 @@ const AddEditNoteProduct = ({ note, onClose, onSave }) => {
     const [duration, setDuration] = useState('')
     const [stock, setStock] = useState('')
     const [error, setError] = useState(null)
- 
+    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5555';
     useEffect(() => {
         if (note) {
             setName(note.name || '')
@@ -35,7 +35,7 @@ const AddEditNoteProduct = ({ note, onClose, onSave }) => {
             }
 
             const authToken = localStorage.getItem('token')
-            const response = await axios.patch(`http://localhost:5555/products/${note._id}`, 
+            const response = await axios.patch(`${API_URL}/products/${note._id}`, 
                 productData,
                 {
                     headers: {

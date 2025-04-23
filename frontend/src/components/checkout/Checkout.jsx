@@ -7,7 +7,7 @@ const Checkout = ({ userId }) => {
     const [error, setError] = useState(null);
     const [addresses, setAddresses] = useState([]);
     const [selectedAddress, setSelectedAddress] = useState("");
-
+    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5555';
     useEffect(() => {
         let isMounted = true;  // ✅ Prevent state update on unmounted component
 
@@ -18,7 +18,7 @@ const Checkout = ({ userId }) => {
                 setIsLoading(true);
                 const token = localStorage.getItem('token');
 
-                const response = await axios.get(`http://localhost:5555/users/${userId}`, {
+                const response = await axios.get(`${API_URL}/users/${userId}`, {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }
@@ -54,7 +54,7 @@ const Checkout = ({ userId }) => {
             setError(null);
 
             const res = await axios.post(
-                `http://localhost:5555/payment/create-order`,
+                `${API_URL}/payment/create-order`,
                 { userId, selectedAddress },
                 {
                     headers: {
@@ -78,7 +78,7 @@ const Checkout = ({ userId }) => {
                 handler: async function (response) {
                     try {
                         await axios.post(
-                            'http://localhost:5555/payment/verify-payment',
+                            `${API_URL}/payment/verify-payment`,
                             {
                                 razorpay_order_id: response.razorpay_order_id,
                                 razorpay_payment_id: response.razorpay_payment_id,

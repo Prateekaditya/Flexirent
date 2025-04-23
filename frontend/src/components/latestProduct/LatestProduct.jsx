@@ -6,7 +6,7 @@ const LatestProduct = ({ limit = 3 }) => {
     const [latestProducts, setLatestProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-
+    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5555';
     useEffect(() => {
         const fetchLatestProducts = async () => {
             try {
@@ -14,7 +14,7 @@ const LatestProduct = ({ limit = 3 }) => {
                 const authToken = localStorage.getItem('token');
                 console.log(authToken)
                 // Fetch latest products
-                const response = await axios.get(`http://localhost:5555/products/latest?limit=${limit}`, {
+                const response = await axios.get(`${API_URL}/products/latest?limit=${limit}`, {
                     headers: {
                         'Authorization': `Bearer ${authToken}`,
                         'Content-Type': 'application/json'
@@ -57,7 +57,7 @@ const LatestProduct = ({ limit = 3 }) => {
                 {latestProducts.map((product) => (
                     <div key={product._id} className="latest-product-card">
                         <img 
-                            src={`http://localhost:5555/uploads/${product.images}`} 
+                            src={`${API_URL}/uploads/${product.images}`} 
                             alt={product.name} 
                             className="latest-product-image"
                         />

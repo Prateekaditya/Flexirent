@@ -12,12 +12,12 @@ const ProductDetails = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [isExpanded, setIsExpanded] = useState(false);
-
+  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5555';
   useEffect(() => {
     const fetchProductDetails = async () => {
       try {
         const authToken = localStorage.getItem("token");
-        const response = await axios.get(`http://localhost:5555/products/${id}`, {
+        const response = await axios.get(`${API_URL}/products/${id}`, {
           headers: {
             Authorization: `Bearer ${authToken}`,
           },
@@ -56,7 +56,7 @@ const ProductDetails = () => {
       <div className="product-details-container">
         <div className="product-details-content">
           <img
-            src={`http://localhost:5555/uploads/${product.images}`}
+            src={`${API_URL}/uploads/${product.images}`}
             alt={product.name}
             className="product-details-image"
           />
