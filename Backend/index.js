@@ -29,6 +29,7 @@ app.use(
         credentials: true
     })
 )
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.use('/users',userRoute)
 app.use('/products',productRoute)
