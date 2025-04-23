@@ -25,9 +25,11 @@ app.get('/',(req,res)=>{
 })
 app.use(
     cors({
-        origin:'*'
+        origin: '*',
+        credentials: true
     })
 )
+
 app.use('/users',userRoute)
 app.use('/products',productRoute)
 app.use('/cart',cartRoute)
