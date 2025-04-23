@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getCart, updateCart, removeFromCart } from '../../assets/helper.jsx';
-import './Cart.css';
+import './cart.css';
 import Navbar from '../../components/navbar/Navbar.jsx';
 import DeleteCart from '../../components/deletecartbutton/DeleteCart.jsx';
 import Checkout from '../../components/checkout/Checkout.jsx';
