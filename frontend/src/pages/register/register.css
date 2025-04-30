@@ -289,5 +289,7 @@ input:-webkit-autofill:active {
 }
 .error_message{
     color: red;
-    
+    width: 250px;
+    position: absolute;
+    left: 200px;
 }
