@@ -84,7 +84,7 @@ const Cart = () => {
                                             <div className="cart-item">
                                                 <div className='divforcartimage'>
                                                     <img
-                                                        src={`${API_URL}/uploads/${item.productId.images}`}
+                                                        src={`${item.productId.images}`}
                                                         alt={item.productId.name}
                                                         className="cart-details-image"
                                                     />

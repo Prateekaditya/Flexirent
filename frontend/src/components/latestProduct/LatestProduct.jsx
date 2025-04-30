@@ -57,7 +57,7 @@ const LatestProduct = ({ limit = 3 }) => {
                 {latestProducts.map((product) => (
                     <div key={product._id} className="latest-product-card">
                         <img 
-                            src={`${API_URL}/uploads/${product.images}`} 
+                            src={`${product.images}`} 
                             alt={product.name} 
                             className="latest-product-image"
                         />

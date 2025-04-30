@@ -45,7 +45,7 @@ const UserOrder = () => {
                     .map((item, index) => (
                         <div className="fstOrder" key={index}>
                             <div className="imgdivfororder">
-                                <img className='imgofordder' src={`${API_URL}/uploads/${item.vendorPayments[0].items[0].productId.images}`} height='100px' width='100px' alt="book" />
+                                <img className='imgofordder' src={`${item.vendorPayments[0].items[0].productId.images}`} height='100px' width='100px' alt="book" />
                             </div>
                             <div className="detailsForOrder">
                                 <p>Name:{item.vendorPayments[0]?.items[0]?.productId.name.slice(0,42)}...</p>

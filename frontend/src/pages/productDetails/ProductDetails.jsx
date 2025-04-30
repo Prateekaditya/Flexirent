@@ -56,7 +56,7 @@ const ProductDetails = () => {
       <div className="product-details-container">
         <div className="product-details-content">
           <img
-            src={`${API_URL}/uploads/${product.images}`}
+            src={`${product.images}`}
             alt={product.name}
             className="product-details-image"
           />

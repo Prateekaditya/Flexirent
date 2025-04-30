@@ -40,7 +40,7 @@ const CardCustomer = () => {
               <div key={item._id} className='boxofItems'  >
                 <Link to={`/product/${item._id}`} className='linkofthebox'> 
                   <div className="imagesbox">
-                    <img src={`${API_URL}/uploads/${item.images}`} 
+                    <img src={`${item.images}`} 
                     alt={item.name} 
                     className='imgsizebox'
                     />

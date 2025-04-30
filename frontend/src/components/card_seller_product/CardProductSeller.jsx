@@ -76,7 +76,7 @@ const CardProductSeller = ({ product, onUpdateProduct, onDeleteProduct }) => {
                         <div className="imgProduct">
                             <img
                                 className='imgProductSeller'
-                                src={`${API_URL}/uploads/${item.images}`}
+                                src={`${item.images}`}
                                 alt={item.name}
                             />
                         </div>
