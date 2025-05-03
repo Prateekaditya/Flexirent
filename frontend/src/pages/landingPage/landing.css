@@ -24,6 +24,7 @@
 }
 .amanwithlappi{
     height: 550px;
+    animation: upDown 2s infinite alternate;
 }
 .flexititle{
     display: flex;
@@ -38,11 +39,25 @@
     margin-top: 90px;
 }
 .gradient-text {
-    background: linear-gradient(to right, #2563eb, #9333ea);
+    background: linear-gradient(90deg, #2563eb, #9333ea, #fbbf24, #2563eb);
+    background-size: 200% 100%;
+    background-repeat: repeat;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-}
+    color: transparent;
+    animation: sparkle-gradient 3s linear infinite;
+  }
+  
+  @keyframes sparkle-gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 100% 50%;
+    }
+  }
+  
 .firstsparkles{
     color: #2563eb;
     font-weight: 700;
@@ -108,3 +123,14 @@
     color: #1E201E;
     
 }
+@keyframes upDown {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateX(25px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
