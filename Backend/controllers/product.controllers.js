@@ -14,7 +14,7 @@ const createProduct = async (req, res) => {
     //   }
     console.log(req.file)
   
-      const { name, description, category, price, duration, stock } = req.body;
+      const { name, description, category, price, duration, stock,images } = req.body;
       const seller = await userModel.findById(req.user._id);
   
       if (seller.role !== 'seller') {
@@ -32,7 +32,7 @@ const createProduct = async (req, res) => {
         price,
         duration,
         stock,
-        images: req.file.filename, // Access the file under 'image' field
+        images
       });
   
       await product.save();

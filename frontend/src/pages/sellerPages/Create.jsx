@@ -125,7 +125,7 @@ const Create = () => {
                 </select></div>
                 </label>  
                 <label className='form_creation_label' name='image' >Image:
-                <input className='inputForCreation' type="file" accept='image/*'  name='image' onChange={(e)=>setImages(e.target.files[0])}></input>
+                <input className='inputForCreation' type="text"   name='image' placeholder='Paste The Link ' onChange={(e)=>setImages(e.target.files[0])}></input>
                 </label>
                 <div className="error_message">{error}</div>
                 <button className='creationSubmit' type='submit'>Create</button>

@@ -40,6 +40,7 @@
     top:36px ;
     left: -60px;
     background: linear-gradient(39deg,#8DB6C5 50%,transparent 50%);
+    /* animation:  animate 3s alternate; */
 }
 .firstsidelogintext{
     position: relative;
@@ -63,6 +64,7 @@
     position: absolute;
     top: 30px;
     left: -90px;
+    /* animation: upDown 2s infinite alternate; */
 }
 .midLogin{
     height: 5px;
@@ -71,8 +73,31 @@
     position: relative;
     transform: rotate(90deg);
     top: 280px;
-    left:530px
+    left:530px;
+    /* animation:animate 3s alternate; */
 }
+/* @keyframes animate {
+    0%{
+        background-color:#7ba7cd ;
+    }
+    50%{
+        background-color: #3c92dd;
+    }
+    100%{
+        background-color: #7ba7cd;
+    }
+} */
+/* @keyframes upDown {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(55px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  } */
 .logindesign2{
     width:380px;
     height: 308px;
