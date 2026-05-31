@@ -4,20 +4,16 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
-  /* background-color: #ECDFCC; */
 }
 body{
   background-color: #ecdfcc;
   user-select: none;
 }
-
-/* Optionally, hide scrollbars specifically for WebKit browsers */
+html, body {
+  overflow-x: hidden;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
 html::-webkit-scrollbar, body::-webkit-scrollbar {
   display: none;
 }
-
-/* Optionally, hide scrollbars specifically for WebKit browsers */
-html::-webkit-scrollbar, body::-webkit-scrollbar {
-  display: none;
-}
-

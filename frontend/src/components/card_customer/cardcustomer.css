@@ -1,24 +1,22 @@
 .mainBodyCard{
-    position: relative;
-    top: 95px;
     display: flex;
     flex-wrap: wrap;
-    gap: 40px;
-    padding: 18px;
-    margin-left: 90px;
+    gap: 32px;
+    padding: 24px 32px;
+    justify-content: center;
+    margin-top: 10px;
 }
 .boxofItems{
     background-color: rgb(254, 254, 254);
-    border-radius: 20px 20px 20px 20px;
-    height: 250px;
-    width: 290px;
-    padding: 10px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 16px;
+    height: 260px;
+    width: 260px;
+    padding: 12px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 12px;
     cursor: pointer;
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
-    align-items:center;
+    align-items: center;
 }
 .boxofItems:hover{
     background-color: rgba(153, 151, 151, 0.604);

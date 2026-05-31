@@ -1,9 +1,9 @@
-import { useState } from "react";
-import "./Login.css";
-import axios from "axios";
-import { FaUser } from "react-icons/fa";
-import { CiShop } from "react-icons/ci";
-import { Link, useNavigate } from "react-router-dom";
+import { useState } from 'react';
+import './Login.css';
+import axios from 'axios';
+import { FaUser } from 'react-icons/fa';
+import { CiShop } from 'react-icons/ci';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [ispassword, showpassowrd] = useState(false);
@@ -59,112 +59,63 @@ const Login = () => {
   };
 
   return (
-    <div className="containerLogin">
-      <div className="semimainLogin">
-        <div className="firstSidelogin">
-          <h1 className="firstsidelogintext">Let's Get Started</h1>
-          <p className="firstsidelogintext">
-            Flex with Rent a Solution to all Problems...
-          </p>
-          <img
-            className="imgdivmain"
-            src="./person.png"
-            alt="person"
-            width="450px"
-            height="507px"
-          />
-          <div className="logindesign"></div>
+    <div className="auth-page">
+      <div className="auth-card">
+
+        {/* Left branding */}
+        <div className="auth-left">
+          <div className="auth-brand-logo">Flexi<span>Rent</span></div>
+          <img className="auth-illustration" src="./person.png" alt="person" />
+          <div className="auth-tagline">
+            <h2>Rent Anything,<br/>Anytime.</h2>
+            <p>Flex with Rent — a Solution to all Problems.</p>
+          </div>
         </div>
-        <div className="midLogin"></div>
-        <div className="secondSideLogin">
-          <div className="logindesign2"></div>
-          <div className="LoginForm">
-            <h2>Welcome</h2>
-            <img src="./lock.png" alt="lock" height="45px" width="35px" />
-            <p>Login to continue</p>
-            <form action="submit" method="post" onSubmit={handleSubmit}>
-              <h4 className="h4form">Choose Your Account type</h4>
-              <div className="divforaccounttype">
-                <label
-                  className={`inputlogin  ${role === "customer" ? "selected" : ""}`}
-                >
-                  <input
-                    type="radio"
-                    name="user"
-                    value="customer"
-                    checked={role === "customer"}
-                    onChange={(e) => {
-                      setRole(e.target.value);
-                    }}
-                  />
-                  <div className="detailuser">
-                    <FaUser />
-                    <span>User</span>
-                  </div>
-                </label>
-                <label
-                  className={`inputlogin ${role === "seller" ? "selected" : ""}`}
-                >
-                  <input
-                    type="radio"
-                    name="user"
-                    value="seller"
-                    checked={role === "seller"}
-                    onChange={(e) => {
-                      setRole(e.target.value);
-                    }}
-                  />
-                  <div className="detailuser">
-                    <CiShop />
-                    <span>Seller</span>
-                  </div>
-                </label>
+
+        {/* Right form */}
+        <div className="auth-right">
+          <div className="auth-form-box">
+            <div className="auth-form-header">
+              <h1>Welcome back 👋</h1>
+              <p>Login to your account to continue</p>
+            </div>
+            <form onSubmit={handleSubmit}>
+              <p className="auth-role-label">Account type</p>
+              <div className="auth-role-group">
+                <button type="button"
+                  className={`auth-role-btn${role === 'customer' ? ' active' : ''}`}
+                  onClick={() => setRole('customer')}>
+                  <FaUser />
+                  User
+                </button>
+                <button type="button"
+                  className={`auth-role-btn${role === 'seller' ? ' active' : ''}`}
+                  onClick={() => setRole('seller')}>
+                  <CiShop />
+                  Seller
+                </button>
               </div>
-              <div className="divofinputfields">
-                <div className="firstfield">
-                  <label className="labelfortextfield" name="email">
-                    Email
-                  </label>
-                  <input
-                    className="inputfortextfirld"
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                  />
+              <div className="auth-fields">
+                <div className="auth-field">
+                  <label>Email</label>
+                  <input type="email" placeholder="you@example.com"
+                    value={email} onChange={(e) => setEmail(e.target.value)} required />
                 </div>
-                <div className="firstfield">
-                  <label className="labelfortextfield2" name="password">
-                    Password
-                  </label>
-                  <div className="inputdiv">
-                    <input
-                      className="inputfortextfirld"
-                      type={ispassword ? "text" : "password"}
-                      name="password"
-                      placeholder="Password"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                      required
-                    />
-                    <span className="eye-icon" onClick={toggeleispassword}>
-                      {ispassword ? "👁️" : "🙈"}
-                    </span>
-                  </div>
+                <div className="auth-field auth-field-pw">
+                  <label>Password</label>
+                  <input type={ispassword ? 'text' : 'password'} placeholder="••••••••"
+                    value={password} onChange={(e) => setPassword(e.target.value)} required />
+                  <span className="auth-eye" onClick={toggeleispassword}>
+                    {ispassword ? '👁️' : '🙈'}
+                  </span>
                 </div>
               </div>
-              <div className="lastpart">
-                <button type="submit">Login</button>
-                <div className="error_message">{error}</div>
-                <p>
-                  Not registered yet?
-                  <Link className="linkoflast" to="/register">
-                    Create Your account
-                  </Link>
-                </p>
-              </div>
+              {error && <div className="auth-error">{error}</div>}
+              <button type="submit" className="auth-submit">Login</button>
+              <p className="auth-footer">
+                Not registered yet?
+                <Link to="/register">Create your account</Link>
+              </p>
             </form>
           </div>
         </div>
