@@ -1,79 +1,138 @@
 .vonatiner{
-    position: absolute;
-    height: 100%;
+    min-height: 100vh;
     width: 100%;
     background-color: #ECDFCC;
 }
 .formforCreation{
-    /* background-color: aqua; */
-    height: 88.5%;
-    padding: 40px;
-    width: 1234px;
-    left: 300px;
-    top: 80px;
-    cursor: pointer;
-    position: relative;
+    flex: 1;
+    max-width: 520px;
+    background: #fff;
+    padding: 36px 40px;
+    border-radius: 16px;
+    box-shadow: rgba(0,0,0,0.10) 0px 8px 32px;
 }
 .inputForCreation{
-    width: 200px;
-    padding: 6px;
-    /* border: 1px solid #787e78;
-     */
-     border: none;
-    border-radius: 7px;
+    width: 100%;
+    padding: 9px 12px;
+    border: 1.5px solid #d0ccc5;
+    border-radius: 8px;
+    font-size: 0.92rem;
+    background: #faf9f7;
+    color: #1E201E;
+    transition: border-color 200ms, box-shadow 200ms;
+    margin-top: 4px;
 }
 .inputForCreation:focus{
     outline: none;
+    border-color: #1E201E;
+    box-shadow: 0 0 0 3px rgba(30,32,30,0.08);
+    background: #fff;
 }
 .inputForCreationoption{
-    width: 150px;
-    padding: 3px;
-    border: none;
-    border-radius: 7px;
+    flex: 1;
+    padding: 9px 10px;
+    border: 1.5px solid #d0ccc5;
+    border-radius: 8px;
+    font-size: 0.92rem;
+    background: #faf9f7;
+    color: #1E201E;
+    cursor: pointer;
+    transition: border-color 200ms;
+}
+.inputForCreationoption:focus{
+    outline: none;
+    border-color: #1E201E;
 }
 .inputForCreation2{
-    width:50px;
-    padding: 3px;
-    border-radius: 7px;
-    border:none;
+    width: 70px;
+    padding: 9px 10px;
+    border: 1.5px solid #d0ccc5;
+    border-radius: 8px;
+    font-size: 0.92rem;
+    background: #faf9f7;
+    color: #1E201E;
+    transition: border-color 200ms;
 }
 .inputForCreation2:focus{
     outline: none;
+    border-color: #1E201E;
+    box-shadow: 0 0 0 3px rgba(30,32,30,0.08);
 }
 .form_creation_product{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    gap: 13px;
-    /* align-items: center; */
+    gap: 16px;
 }
 .form_creation_label{
     display: flex;
     flex-direction: column;
-    font-size: 0.8rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    gap: 4px;
 }
 .creationSubmit{
-    width: 200px;
-    padding: 6px;
-    border-radius: 7px;
+    width: 100%;
+    padding: 11px;
+    border-radius: 8px;
+    border: none;
+    background-color: #1E201E;
+    color: #ECDFCC;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 0.03em;
+    transition: background 200ms;
+    margin-top: 4px;
+}
+.creationSubmit:hover{
+    background-color: #3C3D37;
 }
 .error_message{
-    color: red;
-    
+    color: #e03535;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 6px 10px;
+    background: #fff0f0;
+    border-left: 3px solid #e03535;
+    border-radius: 4px;
+}
+.formforCreation h4{
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1E201E;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    letter-spacing: 0.02em;
 }
 .durationInput{
-    background-color: white;
-    width: 200px;
+    display: flex;
+    gap: 8px;
+    margin-top: 4px;
+    align-items: center;
+}
+.durationInput select{
+    flex: 1;
+    padding: 9px 10px;
+    border: 1.5px solid #d0ccc5;
     border-radius: 8px;
+    font-size: 0.92rem;
+    background: #faf9f7;
+    color: #1E201E;
+    cursor: pointer;
 }
 .durationInput select:focus{
     outline: none;
+    border-color: #1E201E;
 }
 .container {
     background-color: #ECDFCC;
-    height: 100%;
+    min-height: 100vh;
     width: 100%;
-    position: relative;
+    display: flex;
+    flex-direction: column;
   }
   /* .Products_card_seller{
     min-height: 800px;
@@ -88,14 +147,10 @@
 
 /*  */
 .Products_card_seller{
-    /* background-color: yellowgreen; */
+    margin-left: 310px;
     margin-top: 80px;
-    /* background-color: #ECDFCC; */
-    /* height: 100vmax; */
-    /* height: 100vmax; */
-    width: 100%;
-    
-
+    width: calc(100% - 320px);
+    padding: 20px;
 }
 
 /* .container::-webkit-scrollbar {
@@ -103,23 +158,32 @@
 } */
 .boxforcreation{
     display: flex;
-
+    margin-left: 300px;
+    margin-top: 82px;
+    padding: 30px;
+    gap: 40px;
+    align-items: flex-start;
 }
 .imgofnature{
-    position: relative;
-    top: 100px;
-    left: -100px;
+    max-width: 460px;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 12px;
+    align-self: center;
+    flex-shrink: 0;
 }
 .headingofrorder{
-    position: relative;
-    font-size: 70px;
-    top: 80px;
-    right: -700px;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #1E201E;
+    margin-bottom: 24px;
 }
 .boxfororderofseller{
-    margin-left: 350px;
-    margin-top: 130px;
+    margin-left: 310px;
+    margin-top: 90px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 24px;
 }

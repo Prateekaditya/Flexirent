@@ -13,6 +13,7 @@ const Navbar = () => {
   const [userRole,setUserRole] = useState('')
   const [isOpen,setOpen] =useState(false)
   const [name,setName]=useState('')
+  const [menuOpen, setMenuOpen] = useState(false)
   useEffect(()=>{
     const checkLoginStatus = ()=>{
     const userString = localStorage.getItem('user')
@@ -58,10 +59,15 @@ const Navbar = () => {
     <div>
         <div className="navbarbox">
           <Link to='/users' className='firstlinkofthewebsite'>
-            <h1>FlexiRent <FaLaptopHouse className='iconOflaptop'/> </h1></Link> 
+            <h1>FlexiRent <FaLaptopHouse className='iconOflaptop'/> </h1></Link>
 
-           {isLogin && ( 
-         <div className="nav-links">
+          {/* Hamburger — only visible on mobile */}
+          <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)} aria-label="Menu">
+            <span/><span/><span/>
+          </button>
+
+           {isLogin && (
+         <div className={`nav-links ${menuOpen ? 'nav-links--open' : ''}`}>
          {userRole === 'seller' ? (
            // Links specific to seller role
            <>

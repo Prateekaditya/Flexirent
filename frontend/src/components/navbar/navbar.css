@@ -1,13 +1,15 @@
 .navbarbox {
-    position: fixed; /* Fixed position */
+    position: fixed;
     top: 0;
     width: 100%;
     color: white;
-    padding: 20px;
+    padding: 0 20px;
+    height: 72px;
     display: flex;
+    align-items: center;
     background-color: #1E201E;
     justify-content: space-between;
-    z-index: 1000; /* Ensure it stays above other content */
+    z-index: 1000;
 }
 
 .iconOflaptop{
@@ -34,13 +36,11 @@
     padding: 12px;
     }
 .inputForseller{
-    width: 500px;
-    height: 40px;
-    padding: 10px;
-    padding-left: 20px;
+    width: 320px;
+    height: 38px;
+    padding: 8px 16px;
     border-radius: 15px;
     border: none;
-    /* font-size: rem; */
 }
 .input_serach{
     position: relative;
@@ -56,22 +56,23 @@
 }
 .forseller{
     display: flex;
-    /* width: 700px; */
-    /* background-color: antiquewhite; */
-    
+    align-items: center;
+    gap: 16px;
+    position: relative;
 }
 .forProfile{
     display: flex;
     border-radius: 10px;
     background-color:#3C3D37;
-    position: relative;
-    left: 300px;
-    height: 40px;
-    gap: 10px;
+    height: 38px;
+    gap: 8px;
+    align-items: center;
     justify-content: center;
-    /* align-content: center; */
-    width: 120px;
-    padding:8px;
+    width: 130px;
+    padding: 6px 12px;
+    cursor: pointer;
+    order: 10;
+    flex-shrink: 0;
 }
 .forProfile:hover{
     color: white;
@@ -110,13 +111,14 @@
     transition: 200ms;
 }
 .inputForuser{
-    width: 500px;
-    height: 40px;
-    padding: 10px;
-    padding-left: 20px;
+    width: 280px;
+    height: 38px;
+    padding: 8px 16px;
     border-radius: 15px;
     border: none;
-    /* font-size: rem; */
+}
+.inputForuser:focus{
+    outline: 2px solid #ECDFCC;
 }
 .input_serach{
     position: relative;
@@ -131,61 +133,114 @@
     border-color: #ECDFCC; */
 }
 .inputfieldDivuser{
-    position: relative;
-    left: -280px;
-    width: max-content;
-    /* background-color: #ECDFCC; */
+    display: flex;
+    align-items: center;
+    order: 1;
 }
 .pagelinkforUser{
-    position: absolute;
     display: flex;
-    right: 280px;
-    /* justify-content: space-between; */
-    gap: 20px;
-  top: 30px;
-  font-size: 0.9rem;
-  padding: 4px;
-    /* background-color: #ECDFCC; */
-    
+    align-items: center;
+    gap: 18px;
+    font-size: 0.9rem;
+    order: 5;
 }
 .pagelinkforUser div{
     cursor: pointer;
 }
 .cart{
-    /* background-color: aliceblue; */
     color: white;
-    padding: 3px;
-    height: 30px;
-    width: 40px;
-    /* border: 1px solid #73746e; */
-    /* border-radius: 50%; */
-    /* border-radius: 20%; */
     font-size: 1.6rem;
-    position: relative;
-    top: -8px;
-    left: 70px;
+    display: flex;
+    align-items: center;
 }
 .pagelinkforUserLink{
     text-decoration: none;
     color: white;
 }
+/* ── Hamburger button (hidden on desktop) ── */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 26px;
+    height: 18px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1100;
+}
+.hamburger span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: #ECDFCC;
+    border-radius: 2px;
+    transition: all 200ms;
+}
+
+/* nav-links: inline on desktop, drawer on mobile */
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
 @media (max-width: 1024px){
-    .inputForuser{
-        width: 100px;
+    .inputForseller, .inputForuser{
+        width: 160px;
     }
     .pagelinkforUser{
-        width: 360px;
         gap: 10px;
-        font-size: 0.8rem;
-        /* background-color: red; */
-        margin-right: 50px;
+        font-size: 0.78rem;
     }
-    .cart{
-        /* margin-left: 60px; */
-        position: relative;
-        left: 150px;
+}
+
+@media (max-width: 768px){
+    .hamburger { display: flex; }
+
+    .nav-links {
+        position: fixed;
+        top: 72px;
+        right: 0;
+        width: 240px;
+        height: calc(100vh - 72px);
+        background-color: #1E201E;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 24px 20px;
+        gap: 20px;
+        transform: translateX(100%);
+        transition: transform 250ms ease;
+        z-index: 999;
+        overflow-y: auto;
     }
-    
+    .nav-links--open {
+        transform: translateX(0);
+    }
+    .forseller {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+    }
+    .inputForseller, .inputForuser {
+        width: 180px;
+    }
+    .forProfile {
+        order: 0;
+        width: 100%;
+    }
+    .pagelinkforUser {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        font-size: 0.9rem;
+        order: 0;
+    }
+    .inputfieldDivuser { order: 0; }
+}
+
+@media (max-width: 480px){
+    .navbarbox h1 { font-size: 1.2rem; }
 }
 .firstlinkofthewebsite{
     text-decoration: none;
