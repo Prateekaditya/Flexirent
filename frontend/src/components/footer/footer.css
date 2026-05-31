@@ -51,8 +51,11 @@ color: #0077b5;
 }
 @media (max-width:768px){
 .footerBody{
-    max-width: 100%;
-    min-width:auto;
-    width: 786px;
+    width: 100%;
+    font-size: 0.95rem;
+}
+.footerLinksMAny{
+    flex-wrap: wrap;
+    gap: 12px;
 }
 }

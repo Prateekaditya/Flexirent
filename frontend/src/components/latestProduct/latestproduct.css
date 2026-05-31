@@ -1,6 +1,6 @@
 /* Latest Products Container */
 .latest-products-container {
-    padding: 6rem;
+    padding: 3rem 2rem;
     background-color: #ECDFCC;
 }
 
@@ -76,18 +76,15 @@
 }
 
 @media (max-width: 768px) {
+    .latest-products-container{
+        padding: 2rem 1rem;
+    }
     .latest-products-grid {
         grid-template-columns: 1fr;
-        width: 300px;
-        align-items: center;
-        justify-content: center;
-        align-content: center;
-        position: relative;
-        left: 300px;
+        max-width: 400px;
+        margin: 0 auto;
     }
     .titleofheading{
-        position: relative;
-        left: 335px;
         text-decoration: underline;
     }
 }

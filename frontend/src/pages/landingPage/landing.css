@@ -1,6 +1,5 @@
 .landing_container{
-    position: absolute;
-    height: 100%;
+    min-height: 100vh;
     width: 100%;
     background-color: #ECDFCC;
 }
@@ -9,21 +8,25 @@
     flex-direction: column;
 }
 .otherPart{
-    position: relative;
-    /* background-color: aqua; */
-    padding: 10px;
+    padding: 20px;
     display: flex;
+    flex-wrap: wrap;
     margin-top: 80px;
     justify-content: space-around;
-    
+    align-items: center;
+    gap: 20px;
 }
 .imageofLanding{
-    /* background-color: red; */
     padding: 10px;
-    width: 650px;
+    max-width: 580px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 .amanwithlappi{
-    height: 550px;
+    max-height: 480px;
+    width: 100%;
+    object-fit: contain;
     animation: upDown 2s infinite alternate;
 }
 .flexititle{
@@ -33,10 +36,10 @@
     
 }
 .rolesgetting{
-    /* background-color: aqua; */
-    width: 540px;
+    max-width: 540px;
+    width: 100%;
     padding: 10px;
-    margin-top: 90px;
+    margin-top: 40px;
 }
 .gradient-text {
     background: linear-gradient(90deg, #2563eb, #9333ea, #fbbf24, #2563eb);

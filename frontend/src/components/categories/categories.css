@@ -1,17 +1,21 @@
 .categoriesbody{
     display: flex;
+    flex-wrap: wrap;
     padding: 2px;
+    align-items: flex-start;
 }
 .imgForpointer{
-    height: 500px;
-    width: 500px;
+    max-height: 440px;
+    max-width: 440px;
+    width: 100%;
+    object-fit: contain;
 }
 .Bhulgaya{
-    padding: 10px;
-    margin-left: 100px;
+    padding: 20px;
+    width: 100%;
 }
 .Bhulgaya h1{
-    margin-left: 550px;
+    text-align: center;
     text-decoration: underline;
     margin-top: 10px;
     margin-bottom: 26px;
@@ -54,44 +58,27 @@
 
 @media (max-width:800px ){
     .containerForEachCategorie{
-        /* background-color: red; */
-        height:150px;
-        width: 100px;
+        height: 130px;
+        width: 130px;
+        padding: 14px;
     }
     .categoriesbox{
-        /* background-color: aqua; */
-        position: relative;
-        left: 100px;
-        width: 350px;
-        display: flex;
-        flex-wrap: wrap;
+        width: 100%;
+        justify-content: center;
     }
-    .categoriestitile{
-        position: relative;
-        right: 240px;
-    }
-
 }
 @media (max-width:430px ){
     .Bhulgaya{
-     width: 300px;
+        width: 100%;
+        padding: 10px;
     }
     .containerForEachCategorie{
-        /* background-color: red; */
-        height:90px;
-        width: 170px;
+        height: 90px;
+        width: 140px;
+        padding: 10px;
     }
     .categoriesbox{
-        /* background-color: aqua; */
-        /* position: relative; */
-        /* left: 100px; */
-        width: 250px;
-        
-        display: flex;
-        flex-wrap: wrap;
-    }
-    .categoriestitile{
-        position: relative;
-        right: 240px;
+        width: 100%;
+        gap: 12px;
     }
 }
