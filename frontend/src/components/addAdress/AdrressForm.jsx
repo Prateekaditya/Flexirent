@@ -157,21 +157,25 @@
 import React from 'react'
 import { useState } from 'react'
 import axios from 'axios'
-const AdrressForm = () => {
-    const [country,setCountry] = useState();
-    const [city,setCity] = useState();
-    const [state,setState] = useState();
-    const [address1,setAddress1] = useState();
-    const [address2,setAddress2] = useState();
-    const [pincode,setPincode] = useState();
-    const [addressType,setAddressType] = useState();
-    const [phoneNumber,setPhoneNumber] = useState();
+const AdrressForm = ({ onSuccess }) => {
+    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5555';
+    const [country,setCountry] = useState('');
+    const [city,setCity] = useState('');
+    const [state,setState] = useState('');
+    const [address1,setAddress1] = useState('');
+    const [address2,setAddress2] = useState('');
+    const [pincode,setPincode] = useState('');
+    const [addressType,setAddressType] = useState('');
+    const [phoneNumber,setPhoneNumber] = useState('');
+    const [error, setError] = useState('');
+    const [success, setSuccess] = useState(false);
+    const [loading, setLoading] = useState(false);
 
-    const handleSubmit =async(e)=>{
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        setError(''); setSuccess(false); setLoading(true);
         try{
             const token = localStorage.getItem('token');
-            console.log(token)
             const response = await axios.patch(`${API_URL}/users/details`,{
                 country,
                 city,
@@ -187,15 +191,14 @@ const AdrressForm = () => {
                 }
             })
             if(response.data.success){
-                console.log("data")
-            }
-            else{
-                console.log("error")
+                setSuccess(true);
+                if(onSuccess) onSuccess();
             }
         }
         catch(e){
-            console.log(e.message)
+            setError(e.response?.data?.message || e.message);
         }
+        finally { setLoading(false); }
     }
   return (
     <>  
@@ -289,7 +292,11 @@ const AdrressForm = () => {
                     <option value="other">Other</option>
                 </select>
             </div>
-            <button>Save Address</button>
+            {error && <p className="addr-error">{error}</p>}
+            {success && <p className="addr-success">Address saved successfully!</p>}
+            <button className="addr-submit" type="submit" disabled={loading}>
+                {loading ? 'Saving…' : 'Save Address'}
+            </button>
         </div>
         </form>
     </>
