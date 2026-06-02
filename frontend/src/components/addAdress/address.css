@@ -1,17 +1,145 @@
-.hehehehehdetails{
-    background-color: rgb(182, 182, 182);
-    width: 300px;
-    height: 150px;
-    border-radius: 20%;
-    position: relative;
-    padding: 20px;
-    margin: 15px;
-    box-shadow: 20px 2px 20px 3px rgb(210, 210, 210);
+/* Address display */
+.displayAddressContainer { width: 100%; }
+
+.displayAddressContainer > p {
+    display: none; /* name/email/role shown in profile hero instead */
 }
-.detailsboxaddress{
+
+.displayAddressContainer h2 { display: none; }
+
+.detailsboxaddress {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+    margin-top: 4px;
+}
+
+.hehehehehdetails {
+    background: #fff;
+    border: 1.5px solid #e8e4dc;
+    border-radius: 12px;
+    padding: 18px 20px;
     display: flex;
-    flex-wrap: wrap;
-    gap: 14px;
+    flex-direction: column;
+    gap: 4px;
+    box-shadow: 0 2px 8px rgba(30,32,30,0.06);
+    transition: box-shadow 200ms;
+    height: auto;
+}
+
+.hehehehehdetails:hover {
+    box-shadow: 0 4px 16px rgba(30,32,30,0.12);
+}
+
+.hehehehehdetails p {
+    font-size: 0.85rem;
+    color: #555;
+    margin: 0;
+}
+
+.hehehehehdetails p:first-child {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #1E201E;
+}
+
+.hehehehehdetails h5 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #1E201E;
+    margin: 2px 0;
+}
+
+.hehehehehdetails h4 {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 4px 0 0;
+}
+
+/* Address form fields */
+.divforaddressForm {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.eachfieldfivforadrress {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.eachfieldfivforadrress label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #666;
+}
+
+.eachfieldfivforadrress input,
+.eachfieldfivforadrress select {
+    padding: 10px 12px;
+    border: 1.5px solid #e0dbd4;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: #1E201E;
+    background: #fff;
+    outline: none;
+    transition: border-color 180ms;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.eachfieldfivforadrress input:focus,
+.eachfieldfivforadrress select:focus {
+    border-color: #1E201E;
+}
+
+.addr-submit {
+    grid-column: 1 / -1;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: #1E201E;
+    color: #ECDFCC;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 200ms;
+    margin-top: 4px;
+}
+
+.addr-submit:hover { background: #3C3D37; }
+.addr-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.addr-error {
+    grid-column: 1 / -1;
+    font-size: 0.82rem;
+    color: #d32f2f;
+    background: #fff3f3;
+    border-left: 3px solid #d32f2f;
+    border-radius: 4px;
+    padding: 8px 12px;
+    margin: 0;
+}
+
+.addr-success {
+    grid-column: 1 / -1;
+    font-size: 0.82rem;
+    color: #2e7d32;
+    background: #f0fff4;
+    border-left: 3px solid #2e7d32;
+    border-radius: 4px;
+    padding: 8px 12px;
+    margin: 0;
+}
+
+@media (max-width: 520px) {
+    .divforaddressForm { grid-template-columns: 1fr; }
 }
 /* .detailsboxaddress:hover{
     scale: 1.1;

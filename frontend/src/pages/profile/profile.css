@@ -1,21 +1,134 @@
-.buttonforaddressclicking{
-    padding: 8px;
-    border: 1px solid rgb(183, 183, 183);
-    width: 150px;
-    border-radius: 20px;
-    margin-left: 22px;
-    cursor: pointer;
-    transition: background 200ms;
-}
-.buttonforaddressclicking:hover{
-    background-color: #1E201E;
-    color: #ECDFCC;
-    border-color: #1E201E;
-}
-.containerForAddress{
-    margin-top: 84px;
-    padding: 20px;
+/* ── Profile Page ── */
+.profile-page {
+    min-height: 100vh;
+    background-color: #ECDFCC;
+    margin-top: 72px;
+    padding: 36px 24px 60px;
+    box-sizing: border-box;
     max-width: 900px;
     margin-left: auto;
     margin-right: auto;
+}
+
+/* Hero card */
+.profile-hero {
+    background: #1E201E;
+    border-radius: 18px;
+    padding: 32px 36px;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    margin-bottom: 32px;
+    box-shadow: 0 8px 32px rgba(30,32,30,0.18);
+}
+
+.profile-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #ECDFCC;
+    color: #1E201E;
+    font-size: 2rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.profile-hero-info h1 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #ECDFCC;
+    margin: 0 0 4px;
+}
+
+.profile-hero-info p {
+    font-size: 0.9rem;
+    color: rgba(236,223,204,0.65);
+    margin: 0 0 10px;
+}
+
+.profile-role-badge {
+    display: inline-block;
+    background: rgba(236,223,204,0.15);
+    border: 1px solid rgba(236,223,204,0.3);
+    color: #ECDFCC;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 3px 10px;
+    border-radius: 20px;
+}
+
+/* Section */
+.profile-section {
+    background: #fff;
+    border-radius: 16px;
+    padding: 28px 32px;
+    box-shadow: 0 4px 16px rgba(30,32,30,0.08);
+}
+
+.profile-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.profile-section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #1E201E;
+}
+
+.profile-section-title svg { font-size: 1.1rem; color: #3C3D37; }
+
+.profile-section-title h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0;
+    color: #1E201E;
+}
+
+/* Add address button */
+.profile-add-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 18px;
+    border-radius: 8px;
+    border: 1.5px solid #1E201E;
+    background: #1E201E;
+    color: #ECDFCC;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 200ms, color 200ms;
+}
+
+.profile-add-btn.active {
+    background: transparent;
+    color: #1E201E;
+}
+
+.profile-add-btn:hover { opacity: 0.85; }
+
+/* Form wrapper */
+.profile-form-wrapper {
+    background: #faf9f7;
+    border: 1.5px solid #e8e4dc;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .profile-hero { flex-direction: column; align-items: flex-start; padding: 24px; }
+    .profile-section { padding: 20px 16px; }
 }
